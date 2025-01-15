@@ -14,6 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import "./Header.css"
+import { Link } from '@mui/material';
 
 const drawerWidth = 250;
 const navItems = ['Home', 'Video', 'About','Contact us'];
@@ -77,11 +78,44 @@ function DrawerAppBar(props) {
             Astrology with Reena
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block'  } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#000' }}>
-                {item}
-              </Button>
-            ))}
+           
+             
+              
+                 <Link sx={
+                   {
+                    textDecoration:'none',
+                    color:'#000',
+                    marginRight:2
+                   }
+                 }
+                  href="/">
+                    Home
+                </Link>
+                
+                <Link sx={
+                   {
+                    textDecoration:'none',
+                    color:'#000',
+                    marginRight:2
+                   }
+                 }
+                  href="/contact">
+                    About
+                </Link>
+                <Link sx={
+                   {
+                    textDecoration:'none',
+                    color:'#000',
+                    marginRight:2
+                   }
+                 }
+                  href="/contact">
+                    Contact us
+                </Link>
+
+              
+              
+        
           </Box>
         </Toolbar>
       </AppBar>
