@@ -2,141 +2,94 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import "./Header.css"
-import { Link } from '@mui/material';
+import { Link, Menu, MenuItem } from '@mui/material';
+import "./Header.css";
 
-const drawerWidth = 250;
-const navItems = ['Home', 'Video', 'About','Contact us'];
+const navItems = ['Home',  'About', 'Contact us'];
 
 function DrawerAppBar(props) {
-  const { window } = props;
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
+  const handleMenuToggle = (event) => {
+    setAnchorEl(event.currentTarget);
+    setMobileOpen(!mobileOpen);
   };
 
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        Astrology with Reena
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+    setMobileOpen(false);
+  };
 
-  const container = window !== undefined ? () => window().document.body : undefined;
   return (
-    <Box position="relative"  sx={{ display: 'flex'}}>
+    <Box position="relative" sx={{ display: 'flex' }}>
+
       <CssBaseline />
-      <AppBar component="nav" sx={{backgroundColor:"#fff" ,color:'#000'}}>
+      <AppBar component="nav" sx={{ backgroundColor: "#fff", color: '#000' }}>
         <Toolbar>
+          {/* Box for Image and Text alignment */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+            }}
+          >
+            <img className="image-container" src="/images/astrology.png" alt="Logo" style={{ width: '40px', height: '40px' }} />
+            <span style={{ fontWeight: 'bold', fontSize: '20px', fontFamily: 'Montserrat, sans-serif' }}>
+              Astrology with Reena Sharma
+            </span>
+          </Box>
+
+          {/* Spacer to push the menu icon to the right */}
+          <Box sx={{ flexGrow: 1 }} />
+
           <IconButton
             color="inherit"
-            aria-label="open drawer"
+            aria-label="open menu"
             edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            onClick={handleMenuToggle}
+            sx={{ ml: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
           </IconButton>
-          <Box
-            component='div'
-            display={{xs:'none', sm:"block"}}
 
-           
-          >
-              <img  className="image-container" src="/images/astrology.png"/>
-          </Box>
-          
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: {  sm: 'block',fontWeight:'bold' } }}
-        
-          >
-            Astrology with Reena
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block'  } }}>
-           
-             
-              
-                 <Link sx={
-                   {
-                    textDecoration:'none',
-                    color:'#000',
-                    marginRight:2
-                   }
-                 }
-                  href="/">
-                    Home
-                </Link>
-                
-                <Link sx={
-                   {
-                    textDecoration:'none',
-                    color:'#000',
-                    marginRight:2
-                   }
-                 }
-                  href="/contact">
-                    About
-                </Link>
-                <Link sx={
-                   {
-                    textDecoration:'none',
-                    color:'#000',
-                    marginRight:2
-                   }
-                 }
-                  href="/contact">
-                    Contact us
-                </Link>
-
-              
-              
-        
+          {/* Desktop Links */}
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Link sx={{ textDecoration: 'none', color: '#000', marginRight: 2, fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }} href="/">
+              Home
+            </Link>
+            <Link sx={{ textDecoration: 'none', color: '#000', marginRight: 2, fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }} href="/about">
+              About
+            </Link>
+            <Link sx={{ textDecoration: 'none', color: '#000', marginRight: 2, fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }} href="/contact">
+              Contact us
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>
-      <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
+
+      {/* Mobile Menu */}
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleCloseMenu}
+        sx={{ display: { xs: 'block', sm: 'none' } }}
+      >
+        {navItems.map((item) => (
+          <MenuItem key={item} onClick={handleCloseMenu}>
+            <Link sx={{ textDecoration: 'none', color: '#000', fontFamily: 'Montserrat, sans-serif' }} href={`/${item.toLowerCase().replace(' ', '')}`}>
+              {item}
+            </Link>
+          </MenuItem>
+        ))}
+      </Menu>
     </Box>
   );
 }
+
 export default DrawerAppBar;

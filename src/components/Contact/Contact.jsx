@@ -1,36 +1,27 @@
 import React from 'react';
 import { Box, Stack, TextField, Button, Typography, Card } from '@mui/material';
 import { styled } from '@mui/system';
-import { Instagram } from '@mui/icons-material';
-import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const ContactContainer = styled(Box)(({ theme }) => ({
   fontFamily: 'Montserrat, sans-serif',
-  marginTop:20,
   color: '#8d97ad',
   fontWeight: 300,
-  padding: '60px 0',
-
-  backgroundPosition: 'center top',
+  padding: '20px', // Reduced padding for smaller contact section
+  background: 'linear-gradient(to right, #ffffff 0%, #f4f4f4 100%)', // White gradient background
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  minHeight: '100vh', // Make sure it takes full height of the screen without scrolling
 }));
 
 const ContactCard = styled(Card)(({ theme }) => ({
-  boxShadow: '0px 0px 30px rgba(115, 128, 157, 0.1)',
-  height:690
-}));
-
-const BackgroundBox = styled(Box)(({ theme }) => ({
-  backgroundSize: 'cover',
-  backgroundImage: 'url(https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/1.jpg)',
-  color: 'white',
-  padding: theme.spacing(4),
-  height:690,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
+  boxShadow: '0px 0px 20px rgba(115, 128, 157, 0.1)', // Subtle shadow for a clean look
+  width: '100%',
+  maxWidth: '500px', // Increased width for a more spacious form
+  padding: '20px', // Reduced padding for a compact form
+  borderRadius: '10px',
+  backgroundColor: '#fff', // White background for the card
+  marginTop: '50px', // Added top margin for space above the form
 }));
 
 const GradientButton = styled(Button)(({ theme }) => ({
@@ -46,33 +37,25 @@ const GradientButton = styled(Button)(({ theme }) => ({
 
 const ContactUs = () => {
   return (
-    <ContactContainer id="contact" sx={{ backgroundImage: 'url(https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/map.jpg)' }}>
-      <Box sx={{ maxWidth: '1200px', width: '100%' }}>
-        <Stack spacing={4}>
+    <ContactContainer id="contact" sx={{marginTop:'30px'}}>
+      <Box sx={{ width: '100%' }}>
+        <Stack spacing={4} justifyContent="center" alignItems="center">
           <ContactCard>
-            <Stack direction={{ xs: 'column', md: 'row' }}>
-              <Box flex={1} p={4}>
-                <Typography variant="h4" gutterBottom sx={{ marginTop: '60px', textAlign: 'center' }}>
-                  Contact Us
-                </Typography>
-                <form>
-                  <Stack spacing={3} alignItems="center">
-                    <TextField fullWidth label="Name" variant="outlined" />
-                    <TextField fullWidth label="Email" variant="outlined" />
-                    <TextField fullWidth label="Phone" variant="outlined" />
-                    <TextField fullWidth label="Location" variant="outlined" />
-                    <TextField fullWidth label="Message" variant="outlined" multiline rows={4} />
-                    <GradientButton type="submit">
-                      Submit Now
-                    </GradientButton>
-                  </Stack>
-                </form>
-              </Box>
-              <BackgroundBox flex={1}>
-                
-                
-              </BackgroundBox>
-            </Stack>
+            <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', marginBottom: '20px' }}>
+              Contact Us
+            </Typography>
+            <form>
+              <Stack spacing={3}>
+                <TextField fullWidth label="Name" variant="outlined" size="small" />
+                <TextField fullWidth label="Email" variant="outlined" size="small" />
+                <TextField fullWidth label="Phone" variant="outlined" size="small" />
+                <TextField fullWidth label="Location" variant="outlined" size="small" />
+                <TextField fullWidth label="Message" variant="outlined" multiline rows={3} size="small" />
+                <GradientButton type="submit" fullWidth>
+                  Submit Now
+                </GradientButton>
+              </Stack>
+            </form>
           </ContactCard>
         </Stack>
       </Box>

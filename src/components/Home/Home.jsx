@@ -4,6 +4,7 @@ import Service from '../Service/Service'
 import Video from '../Videos/Video'
 import Contact from "../Contact/Contact"
 import Testimonials from '../Testimonials/Testimonials'
+import Footer from '../Footer/Footer'
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
        <Service/>
        <Video/>
        <Testimonials/>
+       <Footer/>
        
     </>
   )

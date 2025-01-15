@@ -1,9 +1,28 @@
-.image-container{
-    height: 35px;
-    width:35px;
+/* Header.css */
+body {
+    font-family: 'Poppins', sans-serif; /* Applying the stylish font family */
+  }
   
-    margin-right: 5px;
-}
-
-
-
+  .image-container {
+    width: 40px;
+    height: 40px;
+  }
+  
+  span {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif; /* Apply the font to the header text */
+  }
+  
+  /* Link Styles */
+  .MuiLink-root {
+    font-family: 'Poppins', sans-serif; /* Ensure all links are consistent with the font */
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  /* For Mobile Menu */
+  .MuiMenu-root {
+    font-family: 'Poppins', sans-serif; /* Font for the mobile menu */
+  }
+  
