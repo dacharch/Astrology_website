@@ -39,9 +39,12 @@ function DrawerAppBar(props) {
               gap: '10px',
             }}
           >
-            <img className="image-container" src="/images/astrology.png" alt="Logo" style={{ width: '40px', height: '40px' }} />
+           <Link href="/">
+           <img className="image-container" src="/images/astrology.png" alt="Logo" style={{ width: '40px', height: '40px' }} />
+           </Link>
+          
             <span style={{ fontWeight: 'bold', fontSize: '20px', fontFamily: 'Montserrat, sans-serif' }}>
-              Astrology with Reena Sharma
+              Astrology by Reena Sharma
             </span>
           </Box>
 

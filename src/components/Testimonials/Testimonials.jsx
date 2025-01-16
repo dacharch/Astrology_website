@@ -10,20 +10,23 @@ const TestimonialsContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  boxShadow: '0px 2px 15px rgba(0, 0, 0, 0.1)', // Adding subtle shadow to the section
-  borderRadius: '10px', // Rounded corners for the section
+  boxShadow: '0px 10px 40px rgba(0, 0, 0, 0.1)', // Adjusted shadow to match service section
+  borderRadius: '10px',
+  maxWidth: '1200px',
+  margin: '0 auto',
+  textAlign: 'center',
 }));
 
 const TestimonialCard = styled(Card)(({ theme }) => ({
   maxWidth: '400px',
   margin: '20px',
-  boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.1)', // Adding shadow to the individual cards
+  boxShadow: '0px 10px 40px rgba(0, 0, 0, 0.1)', // Adjusted shadow to match service section
   borderRadius: '10px',
   textAlign: 'center',
-  transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Smooth transition for hover effect
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   '&:hover': {
-    transform: 'scale(1.05)', // Slight scaling effect on hover
-    boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)', // Stronger shadow on hover
+    transform: 'scale(1.05)',
+    boxShadow: '0px 15px 50px rgba(0, 0, 0, 0.15)', // Stronger shadow on hover
   },
 }));
 
@@ -32,6 +35,7 @@ const TestimonialAvatar = styled(Avatar)(({ theme }) => ({
   height: '80px',
   margin: '0 auto',
   marginBottom: '16px',
+  border: '3px solid #ff8e53', // Border around the avatar to make it pop
 }));
 
 const TestimonialsPage = () => {
@@ -69,10 +73,10 @@ const TestimonialsPage = () => {
           <TestimonialCard key={index}>
             <CardContent>
               <TestimonialAvatar src={testimonial.image} alt={testimonial.name} />
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
                 {testimonial.name}
               </Typography>
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body2" color="textSecondary" sx={{ lineHeight: 1.6 }}>
                 {testimonial.message}
               </Typography>
             </CardContent>

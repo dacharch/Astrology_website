@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Stack, TextField, Button, Typography, Card } from '@mui/material';
 import { styled } from '@mui/system';
 
@@ -36,21 +36,100 @@ const GradientButton = styled(Button)(({ theme }) => ({
 }));
 
 const ContactUs = () => {
+  // State for form fields
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
+    message: '',
+  });
+
+  // Handle change in input fields
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Process the form data (e.g., send to an API or display a message)
+
+    let whatsupurl=`https://wa.me/9560111902?text=${formData}`;
+
+
+    window.open(whatsupurl,'_blank').focus();
+    
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      location: '',
+      message: '',
+    });
+  };
+
   return (
-    <ContactContainer id="contact" sx={{marginTop:'30px'}}>
+    <ContactContainer id="contact" sx={{ marginTop: '30px' }}>
       <Box sx={{ width: '100%' }}>
         <Stack spacing={4} justifyContent="center" alignItems="center">
           <ContactCard>
             <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', marginBottom: '20px' }}>
               Contact Us
             </Typography>
-            <form>
+            <form onSubmit={handleSubmit}>
               <Stack spacing={3}>
-                <TextField fullWidth label="Name" variant="outlined" size="small" />
-                <TextField fullWidth label="Email" variant="outlined" size="small" />
-                <TextField fullWidth label="Phone" variant="outlined" size="small" />
-                <TextField fullWidth label="Location" variant="outlined" size="small" />
-                <TextField fullWidth label="Message" variant="outlined" multiline rows={3} size="small" />
+                <TextField
+                  fullWidth
+                  label="Name"
+                  variant="outlined"
+                  size="small"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+                <TextField
+                  fullWidth
+                  label="Email"
+                  variant="outlined"
+                  size="small"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <TextField
+                  fullWidth
+                  label="Phone"
+                  variant="outlined"
+                  size="small"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+                <TextField
+                  fullWidth
+                  label="Location"
+                  variant="outlined"
+                  size="small"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                />
+                <TextField
+                  fullWidth
+                  label="Message"
+                  variant="outlined"
+                  multiline
+                  rows={3}
+                  size="small"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
                 <GradientButton type="submit" fullWidth>
                   Submit Now
                 </GradientButton>
