@@ -19,7 +19,7 @@ const Service = () => {
       }}
     >
       <Typography sx={{ fontSize: { xs: '20px', sm: '25px' }, fontWeight: 'bold', marginBottom: '20px' }}>
-        Services
+        Featured Services
       </Typography>
 
       <Stack
