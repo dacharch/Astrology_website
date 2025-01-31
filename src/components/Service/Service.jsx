@@ -16,14 +16,14 @@ const services = [
     img: '/images/education.jpg', 
     title: 'Astro Vastu Consultancy', 
     desc: 'Everything is varying energies....surround yourself with happy ones',
-    href:"/services/"
+    href:"/services/vastu"
   },
 
   { 
     img: '/images/business.jpeg', 
     title: 'Face reading',
     desc: 'Face reading empowers you with better decision making wisdom. Learn to read face and claim on charisma.',
-    href:"/services"
+    href:"/services/reading"
 
   },
 
@@ -31,7 +31,7 @@ const services = [
     img: '/images/wealth.jpg',
     title: 'Tarot Card Reading', 
     desc: 'Sometimes, a question irks you. Getting answered through Tarot, you are about clarity and towards calmness.',
-    href:"/services",
+    href:"/services/tarrot",
 
   },
 
@@ -39,7 +39,7 @@ const services = [
     img: '/images/health.jpg', 
     title: 'Life Style Coach',
     desc: 'To harness Power, Peace and Prosperity, coach yourself towards style and substance.',
-    href:'/services'
+    href:'/services/coach'
 
   },
   
@@ -47,7 +47,7 @@ const services = [
     img: '/images/relationship.jpg',
     title: 'Palmistry', 
     desc: "Your hands hold your future. Discover what's in for you and tread towards bliss.",
-    href:'/services'
+    href:'/services/palmistry'
   },
 
  
@@ -75,7 +75,6 @@ const Service = () => {
         Featured Services
       </Typography>
 
-      {/* CSS Grid for 3-column layout */}
       <Box
         sx={{
           display: 'grid',

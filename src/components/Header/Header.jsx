@@ -1,98 +1,60 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import Toolbar from '@mui/material/Toolbar';
-import { Link, Menu, MenuItem } from '@mui/material';
-import "./Header.css";
+import React from 'react';
+import { AppBar, Toolbar, Typography, Box, IconButton } from '@mui/material';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
-const navItems = ['Home',  'About', 'Contact us'];
-
-function DrawerAppBar(props) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleMenuToggle = (event) => {
-    setAnchorEl(event.currentTarget);
-    setMobileOpen(!mobileOpen);
-  };
-
-  const handleCloseMenu = () => {
-    setAnchorEl(null);
-    setMobileOpen(false);
-  };
-
+const Header = () => {
   return (
-    <Box position="relative" sx={{ display: 'flex' }}>
-
-      <CssBaseline />
-      <AppBar component="nav" sx={{ backgroundColor: "#fff", color: '#000' }}>
-        <Toolbar>
-          {/* Box for Image and Text alignment */}
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-            }}
-          >
-           <Link href="/">
-           <img className="image-container" src="/images/astrology.png" alt="Logo" style={{ width: '40px', height: '40px' }} />
-           </Link>
-          
-            <span style={{ fontWeight: 'bold', fontSize: '20px', fontFamily: 'Montserrat, sans-serif' }}>
-              Astrology by Reena Sharma
-            </span>
-          </Box>
-
-          {/* Spacer to push the menu icon to the right */}
-          <Box sx={{ flexGrow: 1 }} />
-
-          <IconButton
-            color="inherit"
-            aria-label="open menu"
-            edge="start"
-            onClick={handleMenuToggle}
-            sx={{ ml: 2, display: { sm: 'none' } }}
-          >
-            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+    <AppBar 
+      position="sticky" 
+      sx={{ 
+        backgroundColor: 'white', 
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', // Box shadow for separation
+        zIndex: 10 // Ensure the header is on top of other content
+      }}
+    >
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        {/* Left side: Phone number and email */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {/* Phone Icon and number */}
+          <IconButton sx={{ color: '#333', fontSize: '30px' }}>
+            <PhoneIcon />
           </IconButton>
+          <Typography variant="body1" sx={{ color: '#333', marginLeft: '8px' }}>
+            +1 (234) 567-890
+          </Typography>
 
-          {/* Desktop Links */}
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Link sx={{ textDecoration: 'none', color: '#000', marginRight: 2, fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }} href="/">
-              Home
-            </Link>
-            <Link sx={{ textDecoration: 'none', color: '#000', marginRight: 2, fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }} href="/about">
-              About
-            </Link>
-            <Link sx={{ textDecoration: 'none', color: '#000', marginRight: 2, fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }} href="/contact">
-              Contact us
-            </Link>
-          </Box>
-        </Toolbar>
-      </AppBar>
+          {/* Email Icon and email */}
+          <IconButton sx={{ color: '#333', fontSize: '30px', marginLeft: '20px' }}>
+            <EmailIcon />
+          </IconButton>
+          <Typography variant="body1" sx={{ color: '#333', marginLeft: '8px' }}>
+            contact@example.com
+          </Typography>
+        </Box>
 
-      {/* Mobile Menu */}
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleCloseMenu}
-        sx={{ display: { xs: 'block', sm: 'none' } }}
-      >
-        {navItems.map((item) => (
-          <MenuItem key={item} onClick={handleCloseMenu}>
-            <Link sx={{ textDecoration: 'none', color: '#000', fontFamily: 'Montserrat, sans-serif' }} href={`/${item.toLowerCase().replace(' ', '')}`}>
-              {item}
-            </Link>
-          </MenuItem>
-        ))}
-      </Menu>
-    </Box>
+        {/* Right side: Social Media icons */}
+        <Box>
+          <IconButton sx={{ marginLeft: '10px', color: '#1877F2', fontSize: '30px' }}>
+            <FacebookIcon />
+          </IconButton>
+          <IconButton sx={{ marginLeft: '10px', color: '#1DA1F2', fontSize: '30px' }}>
+            <TwitterIcon />
+          </IconButton>
+          <IconButton sx={{ marginLeft: '10px', color: '#E4405F', fontSize: '30px' }}>
+            <InstagramIcon />
+          </IconButton>
+          <IconButton sx={{ marginLeft: '10px', color: '#0077B5', fontSize: '30px' }}>
+            <LinkedInIcon />
+          </IconButton>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
-}
+};
 
-export default DrawerAppBar;
+export default Header;
