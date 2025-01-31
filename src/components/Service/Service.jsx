@@ -1,8 +1,60 @@
 import React from 'react';
-import { Box, Typography, Stack } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
+
 import './Service.css';
+import { useNavigate } from 'react-router-dom';
+
+const services = [
+  { 
+    img: '/images/married.jpg', 
+    title: 'Birth Journal', 
+    desc: "Unlock the secrets of life's journey through an insightful analysis of your birth journal.", 
+    href:"/services/journal"
+  },
+
+  { 
+    img: '/images/education.jpg', 
+    title: 'Astro Vastu Consultancy', 
+    desc: 'Everything is varying energies....surround yourself with happy ones',
+    href:"/services/"
+  },
+
+  { 
+    img: '/images/business.jpeg', 
+    title: 'Face reading',
+    desc: 'Face reading empowers you with better decision making wisdom. Learn to read face and claim on charisma.',
+    href:"/services"
+
+  },
+
+  { 
+    img: '/images/wealth.jpg',
+    title: 'Tarot Card Reading', 
+    desc: 'Sometimes, a question irks you. Getting answered through Tarot, you are about clarity and towards calmness.',
+    href:"/services",
+
+  },
+
+  { 
+    img: '/images/health.jpg', 
+    title: 'Life Style Coach',
+    desc: 'To harness Power, Peace and Prosperity, coach yourself towards style and substance.',
+    href:'/services'
+
+  },
+  
+  { 
+    img: '/images/relationship.jpg',
+    title: 'Palmistry', 
+    desc: "Your hands hold your future. Discover what's in for you and tread towards bliss.",
+    href:'/services'
+  },
+
+ 
+];
 
 const Service = () => {
+  const navigate = useNavigate() ;
   return (
     <Box
       component="section"
@@ -16,142 +68,86 @@ const Service = () => {
         marginBottom: '30px',
         marginX: 'auto',
         maxWidth: '1200px',
+        cursor:'pointer'
       }}
     >
       <Typography sx={{ fontSize: { xs: '20px', sm: '25px' }, fontWeight: 'bold', marginBottom: '20px' }}>
         Featured Services
       </Typography>
 
-      <Stack
-        direction={{ xs: 'column', sm: 'row' }}
-        spacing={2}
-        justifyContent="center"
-        alignItems="center"
+      {/* CSS Grid for 3-column layout */}
+      <Box
         sx={{
-          flexWrap: 'wrap',
-          gap: 2, // Adding space between cards
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' },
+          gap: '20px',
+          justifyContent: 'center',
         }}
       >
-        {/* Service 1 */}
-        <Box
-          sx={{
-            width: { xs: '100%', sm: '45%', md: '22%' },
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            borderRadius: '8px',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            '&:hover': {
-              transform: 'scale(1.05)',
-              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)',
-            },
-          }}
-        >
-          <Box>
+        {services.map((service, index) => (
+          <Box
+            key={index}
+            sx={{
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+              borderRadius: '8px',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.05)',
+                boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)',
+              },
+              textAlign: 'center',
+              padding: '20px',
+              height: '100%',
+            }}
+          >
             <img
               className="service_image"
-              src="/images/married.jpg"
-              alt="Married life"
+              src={service.img}
+              alt={service.title}
               style={{
-                width: '100%',
-                height: '200px',
+                width: '100px',
+                height: '100px',
                 objectFit: 'cover',
+                borderRadius: '50%', 
+                marginBottom: '10px',
+                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)', 
+                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out', 
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'scale(1.1)'; 
+                e.currentTarget.style.boxShadow = '0px 8px 15px rgba(0, 0, 0, 0.4)'; 
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'scale(1)'; 
+                e.currentTarget.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.3)';
               }}
             />
-            <Typography padding="10px" sx={{ fontSize: { xs: '12px', sm: '14px' } }}>
-              Marriage is a sacred bond, and astrology can help strengthen it. Discover compatibility, resolve conflicts, and find the perfect timing for important milestones. Let the stars guide your journey to a happy and harmonious married life.
+            <Typography sx={{ fontSize: { xs: '14px', sm: '18px' }, fontWeight: 'bold', marginBottom: '10px' }}>
+              {service.title}
             </Typography>
-          </Box>
-        </Box>
+            <Typography sx={{ fontSize: { xs: '12px', sm: '14px' }, marginBottom: '10px' }}>
+              {service.desc}
+            </Typography>
 
-        {/* Service 2 */}
-        <Box
-          sx={{
-            width: { xs: '100%', sm: '45%', md: '22%' },
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            borderRadius: '8px',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            '&:hover': {
-              transform: 'scale(1.05)',
-              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)',
-            },
-          }}
-        >
-          <Box>
-            <img
-              className="service_image"
-              src="/images/education.jpg"
-              alt="Education"
-              style={{
-                width: '100%',
-                height: '200px',
-                objectFit: 'cover',
+           
+          
+            <Link
+              onClick ={()=>navigate(service.href)}
+              sx={{
+                textDecoration: 'none',
+                backgroundColor: 'black',
+                color: '#fff',
+                padding: '10px 20px',
+                borderRadius: '10px',
+                cursor: 'pointer',
+                display: 'inline-block',
               }}
-            />
-            <Typography padding="10px" sx={{ fontSize: { xs: '12px', sm: '14px' } }}>
-              Education is the foundation of your future, and astrology can guide your path to success. Discover your strengths, overcome challenges, and choose the right direction for a bright academic journey.
-            </Typography>
+            >
+              Get Started Here
+            </Link>
           </Box>
-        </Box>
-
-        {/* Service 3 */}
-        <Box
-          sx={{
-            width: { xs: '100%', sm: '45%', md: '22%' },
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            borderRadius: '8px',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            '&:hover': {
-              transform: 'scale(1.05)',
-              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)',
-            },
-          }}
-        >
-          <Box>
-            <img
-              className="service_image"
-              src="/images/business.jpeg"
-              alt="Business"
-              style={{
-                width: '100%',
-                height: '200px',
-                objectFit: 'cover',
-              }}
-            />
-            <Typography padding="10px" sx={{ fontSize: { xs: '12px', sm: '14px' } }}>
-              We provide business astrology services to help guide your business decisions. By analyzing astrological influences, we offer insights into the best times for growth, investments, and key business choices, ensuring your venture thrives with cosmic support.
-            </Typography>
-          </Box>
-        </Box>
-
-        {/* Service 4 */}
-        <Box
-          sx={{
-            width: { xs: '100%', sm: '45%', md: '22%' },
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            borderRadius: '8px',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            '&:hover': {
-              transform: 'scale(1.05)',
-              boxShadow: '0 8px 25px rgba(0, 0, 0, 0.2)',
-            },
-          }}
-        >
-          <Box>
-            <img
-              className="service_image"
-              src="/images/wealth.jpg"
-              alt="Wealth"
-              style={{
-                width: '100%',
-                height: '200px',
-                objectFit: 'cover',
-              }}
-            />
-            <Typography padding="10px" sx={{ fontSize: { xs: '12px', sm: '14px' } }}>
-              Our wealth astrology services help you attract prosperity and financial success. By examining your birth chart and the planetary influences on your financial life, we provide guidance on the best times to make investments, save, and grow your wealth. Let astrology pave the way for a prosperous future.
-            </Typography>
-          </Box>
-        </Box>
-      </Stack>
+        ))}
+      </Box>
     </Box>
   );
 };
