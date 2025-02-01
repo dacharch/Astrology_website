@@ -42,17 +42,17 @@ const TestimonialsPage = () => {
   const testimonials = [
     {
       name: 'Richa Anurdha',
-      image: 'images/1.jpeg',
+      image: 'images/richa.jpg',
       message: "Life had always felt unpredictable, and I was searching for clarity and guidance. Consulting with Reena Sharma completely changed my perspective. Her insights into my birth chart were not just accurate but deeply meaningful. She helped me understand my strengths, challenges, and even the timing of major life events. With her advice, I gained confidence in my decisions and found a sense of purpose I never thought possible. Astrology with Reena Sharma is not just about predictions; it's about self-awareness and growth. I highly recommend her to anyone seeking guidance in life.'"
     },
     {
       name: 'Lakshya Sharma',
-      image: 'images/2.png',
+      image: 'images/lakshay.png',
       message: "For years, I found myself stuck in a toxic relationship that drained my energy and left me questioning my self-worth. Meeting Reena Sharma was a turning point in my life. Her astrological insights helped me recognize the patterns that were keeping me trapped and gave me the courage to break free.Reena’s compassionate guidance not only brought me clarity but also helped me rediscover my inner strength. Today, I feel lighter, happier, and more aligned with my true self. I am incredibly grateful for her support during one of the most challenging phases of my life. She truly changed my perspective and gave me the confidence to embrace a brighter future.",
     },
     {
       name: 'Archana Chandra',
-      image: 'images/3.png',
+      image: 'images/archana.png',
       message: "I had the pleasure of consulting with Reena Sharma for my astrological needs, and I was truly amazed by her insights and accuracy. Her detailed analysis of my birth chart and the way she explained the planetary influences in my life made everything so clear. She has a remarkable ability to connect with her clients and provide guidance that is not only practical but also deeply insightful. I left the session feeling more confident and aligned with my life's path. Highly recommend Reena for anyone looking for astrological guidance!"
     },
   ];

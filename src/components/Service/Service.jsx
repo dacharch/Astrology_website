@@ -6,21 +6,21 @@ import { useNavigate } from 'react-router-dom';
 
 const services = [
   { 
-    img: '/images/married.jpg', 
+    img: '/images/birth.jpeg', 
     title: 'Birth Journal', 
     desc: "Unlock the secrets of life's journey through an insightful analysis of your birth journal.", 
     href:"/services/journal"
   },
 
   { 
-    img: '/images/education.jpg', 
+    img: '/images/vastu.jpeg', 
     title: 'Astro Vastu Consultancy', 
     desc: 'Everything is varying energies....surround yourself with happy ones',
     href:"/services/vastu"
   },
 
   { 
-    img: '/images/business.jpeg', 
+    img: '/images/face.jpeg', 
     title: 'Face reading',
     desc: 'Face reading empowers you with better decision making wisdom. Learn to read face and claim on charisma.',
     href:"/services/reading"
@@ -28,7 +28,7 @@ const services = [
   },
 
   { 
-    img: '/images/wealth.jpg',
+    img: '/images/card.jpg',
     title: 'Tarot Card Reading', 
     desc: 'Sometimes, a question irks you. Getting answered through Tarot, you are about clarity and towards calmness.',
     href:"/services/tarrot",
@@ -36,7 +36,7 @@ const services = [
   },
 
   { 
-    img: '/images/health.jpg', 
+    img: '/images/life.jpg', 
     title: 'Life Style Coach',
     desc: 'To harness Power, Peace and Prosperity, coach yourself towards style and substance.',
     href:'/services/coach'
@@ -44,7 +44,7 @@ const services = [
   },
   
   { 
-    img: '/images/relationship.jpg',
+    img: '/images/palmistry.jpg',
     title: 'Palmistry', 
     desc: "Your hands hold your future. Discover what's in for you and tread towards bliss.",
     href:'/services/palmistry'

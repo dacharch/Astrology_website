@@ -24,8 +24,8 @@ const App = () => {
            <Route path="services/vastu" element={<Vastu/>} />
            <Route path="services/reading" element={<Reading/>} />
            <Route path="services/tarrot" element={<Tarrot/>} />
-           <Route path="service/coach" element={<LifeCoach/>} />
-           <Route path="service/palmistry" element={<Palmistry/>} />
+           <Route path="services/coach" element={<LifeCoach/>} />
+           <Route path="services/palmistry" element={<Palmistry/>} />
         </Routes>
         <WhatsAppButton/>
       </Router>

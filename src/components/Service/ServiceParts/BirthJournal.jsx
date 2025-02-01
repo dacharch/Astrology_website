@@ -6,7 +6,6 @@ const TarotCardPage = () => {
   return (
     <>
       <Header />
-
       <Box
         sx={{
           display: 'flex',
@@ -27,8 +26,9 @@ const TarotCardPage = () => {
             color: '#333',
           }}
         >
-          Tarot Card Reading
+          Birth Journal 
         </Typography>
+        
 
         <Box
           sx={{
@@ -46,7 +46,7 @@ const TarotCardPage = () => {
               width: '150px',
               height: '150px',
               borderRadius: '50%',
-              backgroundImage: 'url(/images/tarot-card.jpg)', // Update with correct path
+              backgroundImage: 'url(/images/birth.jpeg)', // Update with correct path
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -63,8 +63,7 @@ const TarotCardPage = () => {
               marginX: 'auto',
             }}
           >
-            Selecting and reading from peculiar cards which encompass all the facets of the universe, Tarot is a form of guidance
-            that helps to gain insight into the past, present, and future.
+            Unlock the secrets of life's journey through an insightful analysis of your birth journal (kundli).
           </Typography>
 
           <Typography
@@ -77,7 +76,8 @@ const TarotCardPage = () => {
               marginX: 'auto',  // Ensures it aligns centrally within the box
             }}
           >
-            Communicating symbolically, Tarot employs intricate imagery and evocative illustrations as each card holds a multitude of meanings and invites intuitive interpretation and personal reflection.
+           The celestial bodies (planets and stars) effect your life at every step. Decoding their position and alignment at the time of birth will help you understand the underlying cause of your circumstances - both good and challenging. With profound insights, you decipher the narrative and motive of your life which helps
+           you sail smooth.
           </Typography>
 
           <Typography
@@ -90,8 +90,24 @@ const TarotCardPage = () => {
               marginX: 'auto',  // Ensures it aligns centrally within the box
             }}
           >
-            In a personalized session of Tarot reading, you get your questions answered, helping you gain clarity about navigating complex situations. Sort your relationships, stay on a steady path, and anchor at the harbor of success in your professional life guided by Tarot cards.
+          Astrology is about discovering your strengths which come of cosmic influences as you allow clarity upon your mind and direction towards your actions.
+          This lets you better and mindful decisions.
           </Typography>
+
+          <Typography
+            variant="body1"
+            sx={{
+              lineHeight: '1.8',
+              color: '#555',
+              maxWidth: '600px',
+              marginBottom: '20px',
+              marginX: 'auto',  // Ensures it aligns centrally within the box
+            }}
+          >
+            In a personalised session, your horoscope is vividly studied and discussed followed by an explanation of appropriate and effective remedies. You get to express your concerns and leave with a bagful of hope and faith.
+          </Typography>
+
+          
 
           <Button
             variant="contained"
