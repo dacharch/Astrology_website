@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
@@ -11,7 +10,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import InfoIcon from '@mui/icons-material/Info';
-import SupportIcon from '@mui/icons-material/Support';
 
 export default function HeaderWithSidebar() {
   const [open, setOpen] = React.useState(false);

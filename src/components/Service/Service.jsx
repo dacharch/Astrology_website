@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, Link } from '@mui/material';
-import './Service.css';
 import { useNavigate } from 'react-router-dom';
 
 const services = [
@@ -45,6 +44,25 @@ const services = [
     desc: "Your hands hold your future. Discover what's in for you and tread towards bliss.",
     href:'/services/palmistry'
   },
+  {
+    img:'/images',
+    title:'Complete Kundli',
+    desc:'Discover the cosmic blueprint of your life with our Complete Kundli Service. From detailed birth chart analysis to career, marriage, health, and finance predictions',
+    href:'/services/completeKundli'
+  
+  },
+  {
+    img:'/images',
+    title:'Varshik Rashifal',
+    desc:'Varshik Rashifal provides insights into your career, relationships, health, and finances based on planetary movements. ',
+    href:"/services/varshik"
+  },
+  {
+    img:'/images',
+    title:'Single Question Prediction',
+    desc:'Have a pressing question about your career, relationships, finances, or health?',
+    href:"/services/singlequestion"
+  }
 ];
 
 const Service = () => {

@@ -10,7 +10,9 @@ import Reading from './components/Service/ServiceParts/Reading'
 import LifeCoach from './components/Service/ServiceParts/LifeCoach'
 import Palmistry from "./components/Service/ServiceParts/Palmistry"
 import Tarrot from './components/Service/ServiceParts/Tarrot'
-
+import CompleteKundli from './components/Service/ServiceParts/CompleteKundli'
+import VarshikRashiFal from './components/Service/ServiceParts/VarshikRashiFal'
+import SingleQuestion from './components/Service/ServiceParts/SingleQuestion'
 
 const App = () => {
   return (
@@ -27,6 +29,9 @@ const App = () => {
            <Route path="services/tarrot" element={<Tarrot/>} />
            <Route path="services/coach" element={<LifeCoach/>} />
            <Route path="services/palmistry" element={<Palmistry/>} />
+           <Route path="services/completekundli" element={<CompleteKundli/>} />
+           <Route path="services/varshik" element={<VarshikRashiFal/>} />
+           <Route path="services/singlequestion" element={<SingleQuestion/>} />
         </Routes>
         <WhatsAppButton/>
       </Router>
