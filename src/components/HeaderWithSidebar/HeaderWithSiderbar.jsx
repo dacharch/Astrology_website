@@ -11,6 +11,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import InfoIcon from '@mui/icons-material/Info';
+import SupportIcon from '@mui/icons-material/Support';
 
 export default function HeaderWithSidebar() {
   const [open, setOpen] = React.useState(false);
@@ -33,10 +34,13 @@ export default function HeaderWithSidebar() {
         {[
           { text: 'Home', icon: <HomeIcon />, link: '/' },
           { text: 'Contact', icon: <ContactMailIcon />, link: '/contact' },
+         
           { text: 'About', icon: <InfoIcon />, link: '/about' },
+          
+        
         ].map(({ text, icon, link }) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton component={Link} to={link}> {/* Use Link here */}
+            <ListItemButton component={Link} to={link}> 
               <ListItemIcon>
                 {icon}
               </ListItemIcon>
@@ -48,20 +52,17 @@ export default function HeaderWithSidebar() {
     </Box>
   );
 
-  // Handle mouse movement
   React.useEffect(() => {
     const handleMouseMove = (e) => {
       if (e.clientX < 50) {
-        setOpen(true); // Open the drawer if the mouse is on the left side
+        setOpen(true); 
       } else {
-        setOpen(false); // Close the drawer when mouse moves away to the right or center
+        setOpen(false); 
       }
     };
 
-    // Add event listener to detect mouse position
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
@@ -76,7 +77,7 @@ export default function HeaderWithSidebar() {
         onClose={toggleDrawer(false)}
         sx={{
           '& .MuiDrawer-paper': {
-            backgroundColor: '#fff', // Drawer background color
+            backgroundColor: '#fff', 
           },
         }}
       >

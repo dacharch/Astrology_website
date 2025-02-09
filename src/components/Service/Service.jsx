@@ -51,6 +51,7 @@ const Service = () => {
   const navigate = useNavigate();
   return (
     <Box
+      id="service"
       component="section"
       sx={{
         textAlign: 'center',
