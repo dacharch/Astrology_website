@@ -11,6 +11,7 @@ import LifeCoach from './components/Service/ServiceParts/LifeCoach'
 import Palmistry from "./components/Service/ServiceParts/Palmistry"
 import Tarrot from './components/Service/ServiceParts/Tarrot'
 
+
 const App = () => {
   return (
     <>

@@ -88,20 +88,85 @@ const Header = () => {
           </Box>
         ) : (
           <Box>
-            <IconButton sx={{ marginLeft: '5px', color: '#1877F2' }}>
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                <FacebookIcon />
+            <IconButton 
+              sx={{ 
+                marginLeft: '5px', 
+                color: '#1877F2', 
+                backgroundColor: '#1877F2', 
+                borderRadius: '50%', 
+                padding: '6px', 
+                width: '35px', 
+                height: '35px',
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                  transition: 'transform 0.1s ease',
+                  backgroundColor: '#1877F2', // Ensure background color remains the same
+                }
+              }}
+            >
+              <a href="https://www.facebook.com/people/Paramaksha-Astrology/100076400913764/" target="_blank" rel="noopener noreferrer">
+                <FacebookIcon sx={{ color: 'white', fontSize: '18px' }} />
               </a>
             </IconButton>
             
-            <IconButton sx={{ marginLeft: '5px', color: '#E4405F' }}>
+            <IconButton 
+              sx={{ 
+                marginLeft: '5px', 
+                color: '#E4405F', 
+                backgroundColor: '#E4405F', 
+                borderRadius: '50%', 
+                padding: '6px', 
+                width: '35px', 
+                height: '35px',
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                  transition: 'transform 0.1s ease',
+                  backgroundColor: '#E4405F', // Ensure background color remains the same
+                }
+              }}
+            >
               <a href="https://www.instagram.com/paramaksha/" target="_blank" rel="noopener noreferrer">
-                <InstagramIcon />
+                <InstagramIcon sx={{ color: 'white', fontSize: '18px' }} />
               </a>
             </IconButton>
-            <IconButton sx={{ marginLeft: '5px', color: '#0077B5' }}>
+            <IconButton 
+              sx={{ 
+                marginLeft: '5px', 
+                color: '#0077B5', 
+                backgroundColor: '#0077B5', 
+                borderRadius: '50%', 
+                padding: '6px', 
+                width: '35px', 
+                height: '35px',
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                  transition: 'transform 0.1s ease',
+                  backgroundColor: '#0077B5', // Ensure background color remains the same
+                }
+              }}
+            >
               <a href="https://linkedin.com/in/acharya-reena-sharma-abb50a269" target="_blank" rel="noopener noreferrer">
-                <LinkedInIcon />
+                <LinkedInIcon sx={{ color: 'white', fontSize: '18px' }} />
+              </a>
+            </IconButton>
+            <IconButton 
+              sx={{ 
+                marginLeft: '5px', 
+                color: '#1DA1F2', 
+                backgroundColor: '#1DA1F2', 
+                borderRadius: '50%', 
+                padding: '6px', 
+                width: '35px', 
+                height: '35px',
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                  transition: 'transform 0.1s ease',
+                  backgroundColor: '#1DA1F2', // Ensure background color remains the same
+                }
+              }}
+            >
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <TwitterIcon sx={{ color: 'white', fontSize: '18px' }} />
               </a>
             </IconButton>
           </Box>

@@ -33,6 +33,7 @@ const Videos = () => {
         <iframe
           width="100%"
           height="250"
+        
           src="https://www.youtube.com/embed/XmX4VLO83-k"
           title="2025 में कुंभ, मकर और  मीन राशि पर क्या पड़ेगा असर? जानें बड़े बदलाव और उपाय! Part - 4 #astrology"
           frameBorder="0"
@@ -79,7 +80,7 @@ const Videos = () => {
         sx={{
           marginTop: "30px",
           padding: "12px 30px",
-          backgroundColor: "#3f51b5",
+          backgroundColor: "#000",
           color: "#fff",
           fontSize: "18px",
           borderRadius: "25px",

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, Link } from '@mui/material';
-
 import './Service.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,7 +23,6 @@ const services = [
     title: 'Face reading',
     desc: 'Face reading empowers you with better decision making wisdom. Learn to read face and claim on charisma.',
     href:"/services/reading"
-
   },
 
   { 
@@ -32,7 +30,6 @@ const services = [
     title: 'Tarot Card Reading', 
     desc: 'Sometimes, a question irks you. Getting answered through Tarot, you are about clarity and towards calmness.',
     href:"/services/tarrot",
-
   },
 
   { 
@@ -40,7 +37,6 @@ const services = [
     title: 'Life Style Coach',
     desc: 'To harness Power, Peace and Prosperity, coach yourself towards style and substance.',
     href:'/services/coach'
-
   },
   
   { 
@@ -49,12 +45,10 @@ const services = [
     desc: "Your hands hold your future. Discover what's in for you and tread towards bliss.",
     href:'/services/palmistry'
   },
-
- 
 ];
 
 const Service = () => {
-  const navigate = useNavigate() ;
+  const navigate = useNavigate();
   return (
     <Box
       component="section"
@@ -68,7 +62,7 @@ const Service = () => {
         marginBottom: '30px',
         marginX: 'auto',
         maxWidth: '1200px',
-        cursor:'pointer'
+        cursor: 'pointer'
       }}
     >
       <Typography sx={{ fontSize: { xs: '20px', sm: '25px' }, fontWeight: 'bold', marginBottom: '20px' }}>
@@ -107,17 +101,19 @@ const Service = () => {
                 width: '100px',
                 height: '100px',
                 objectFit: 'cover',
-                borderRadius: '50%', 
+                borderRadius: '50%', // Circle shape
                 marginBottom: '10px',
-                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)', 
-                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out', 
+                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
+                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                border: '5px solid white', // White border
+                padding: '5px', // Padding inside the border
               }}
               onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'scale(1.1)'; 
-                e.currentTarget.style.boxShadow = '0px 8px 15px rgba(0, 0, 0, 0.4)'; 
+                e.currentTarget.style.transform = 'scale(1.1)';
+                e.currentTarget.style.boxShadow = '0px 8px 15px rgba(0, 0, 0, 0.4)';
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.transform = 'scale(1)'; 
+                e.currentTarget.style.transform = 'scale(1)';
                 e.currentTarget.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.3)';
               }}
             />
@@ -128,10 +124,8 @@ const Service = () => {
               {service.desc}
             </Typography>
 
-           
-          
             <Link
-              onClick ={()=>navigate(service.href)}
+              onClick={() => navigate(service.href)}
               sx={{
                 textDecoration: 'none',
                 backgroundColor: 'black',

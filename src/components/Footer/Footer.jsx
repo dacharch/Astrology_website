@@ -1,97 +1,83 @@
 import React from 'react';
-import { Box, IconButton, Typography, Stack } from '@mui/material';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import { Container, Box, Typography, IconButton } from '@mui/material';
+import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 
 const Footer = () => {
   return (
-    <Box
-      component="footer"
-      sx={{
-        backgroundColor: '#333',
-        color: '#fff',
-        padding: '20px 0',
-        textAlign: 'center',
-        position: 'relative',
-        bottom: 0,
-        width: '100%',
-      }}
-    >
-      {/* Social Media Section */}
-      <Stack
-        direction="row"
-        spacing={3}
-        justifyContent="center"
-        alignItems="center"
-        sx={{ marginBottom: '15px' }}
-      >
-        {/* Instagram Icon */}
-        <IconButton
-          sx={{
-            color: '#E1306C', // Instagram real color
-            '&:hover': {
-              background: 'none', // No background on hover
-              color: '#E1306C', // Keep Instagram's color on hover
-            },
-          }}
-          href="https://www.instagram.com/paramaksha/"
-          target="_blank"
-          aria-label="Instagram"
+    <footer style={{ backgroundColor: '#000', color: 'white', padding: '40px 0' }}>
+      <Container>
+        <Box 
+          display="flex" 
+          flexDirection={{ xs: 'column', sm: 'row' }} 
+          justifyContent="space-between" 
+          alignItems="flex-start" 
+          gap={4}
         >
-          <InstagramIcon fontSize="large" />
-        </IconButton>
+          {/* Left Section: Contact Information */}
+          <Box flex={1}>
+            <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
+              Contact Us
+            </Typography>
+            <Typography variant="body1" sx={{ fontSize: '16px' }}>
+              <strong>Phone:</strong> +91 9560111902
+            </Typography>
+            <Typography variant="body1" sx={{ fontSize: '16px' }}>
+              <strong>Email:</strong> paramakshaastrology@gmail.com
+            </Typography>
+          </Box>
 
-        {/* YouTube Icon */}
-        <IconButton
-          sx={{
-            color: '#FF0000', // YouTube Red color
-            '&:hover': {
-              background: 'none', // No background on hover
-              color: '#FF0000', // Keep YouTube red color on hover
-            },
-          }}
-          href="https://www.youtube.com/@AcharyaReenaSharma05"
-          target="_blank"
-          aria-label="YouTube"
-        >
-          <YouTubeIcon fontSize="large" />
-        </IconButton>
-      </Stack>
+          {/* Middle Section: Navigation Links */}
+          <Box flex={1}>
+            <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
+              Quick Links
+            </Typography>
+            <Typography variant="body1">
+              <a href="/" style={{ color: 'white', textDecoration: 'none' }}>
+                Home
+              </a>
+            </Typography>
+            <Typography variant="body1">
+              <a href="/about" style={{ color: 'white', textDecoration: 'none' }}>
+                About
+              </a>
+            </Typography>
+            <Typography variant="body1">
+              <a href="/contact" style={{ color: 'white', textDecoration: 'none' }}>
+                Contact
+              </a>
+            </Typography>
+          </Box>
 
-      {/* Footer Bottom Section with Right Aligned Phone Number and Centered Copyright */}
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        sx={{
-          padding: '0 20px',
-          marginTop: '20px',
-          flexWrap: 'wrap', // Allow wrapping on smaller screens
-          position: 'relative',
-        }}
-      >
-        {/* Footer Copyright in the Center */}
-        <Typography
-          sx={{
-            fontSize: '14px',
-            textAlign: 'center',
-            position: 'absolute',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            marginTop: '5px',
-            marginBottom: '5px',
-            width: '100%', // Ensure it stretches across full width
-          }}
-        >
-          &copy; 2025 Astrology with Reena Sharma. All Rights Reserved.
-        </Typography>
+          {/* Right Section: Social Media */}
+          <Box flex={1} textAlign="center">
+            <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
+              Follow Us
+            </Typography>
+            <Box display="flex" justifyContent="center" gap={2}>
+              <IconButton href="https://www.facebook.com/people/Paramaksha-Astrology/100076400913764/" target="_blank">
+                <Facebook sx={{ color: '#1877F2' }} />
+              </IconButton>
+              <IconButton href="https://twitter.com" target="_blank">
+                <Twitter sx={{ color: '#1DA1F2' }} />
+              </IconButton>
+              <IconButton href="https://www.instagram.com/paramaksha/" target="_blank">
+                <Instagram sx={{ color: '#E4405F' }} />
+              </IconButton>
+              <IconButton href="https://www.linkedin.com/in/acharya-reena-sharma-abb50a269/" target="_blank">
+                <LinkedIn sx={{ color: '#0077B5' }} />
+              </IconButton>
+            </Box>
+          </Box>
+        </Box>
 
-       
-
-   
-        
-      </Stack>
-    </Box>
+        {/* Copyright Section */}
+        <Box sx={{ padding: '20px 0', textAlign: 'center' }}>
+          <Typography variant="body2" sx={{ fontSize: '14px' }}>
+            © 2025 Your Company | All Rights Reserved
+          </Typography>
+        </Box>
+      </Container>
+    </footer>
   );
 };
 
