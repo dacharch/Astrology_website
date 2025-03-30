@@ -109,7 +109,7 @@ const HeroSection = () => {
               <Box
                 sx={{
                   width: "100%",
-                  height: isMobile ? "35vh" : isTablet ? "75vh" : "90vh",
+                  height: isMobile ? "50vh" : isTablet ? "75vh" : "90vh",
                   position: "relative",
                   display: "flex",
                   alignItems: "center",
@@ -134,12 +134,11 @@ const HeroSection = () => {
                       position: "absolute",
                       left: slide.textPosition === "right" ? "auto" : "5%",
                       right: slide.textPosition === "right" ? "5%" : "auto",
-                      width: { xs: "90%", sm: "80%", md: "60%" },
+                      width: { xs: "75%", sm: "60%", md: "55%" },
                       color: "#fff",
                       padding: { xs: "10px", sm: "20px", md: "30px" },
                       borderRadius: "10px",
                       textAlign: "left",
-                      background: "rgba(0, 0, 0, 0.5)",
                     }}
                   >
                     {slide.text}
