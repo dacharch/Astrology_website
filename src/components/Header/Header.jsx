@@ -12,6 +12,8 @@ import {
   Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link as RouterLink } from "react-router-dom";
+import Link from "@mui/material/Link";
 
 const Header = () => {
   const theme = useTheme();
@@ -26,7 +28,11 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const menuItems = ["Home", "About", "Services", "Blog", "Contact"];
+  const menuItems = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Contact", path: "/contact" },
+  ];
 
   return (
     <AppBar
@@ -45,9 +51,8 @@ const Header = () => {
           alignItems: "center",
         }}
       >
-        {/* Left Side: Logo & Brand Name */}
+        {/* Logo and Brand Name */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          {/* Logo */}
           <Box
             component="img"
             src="/images/logo.png"
@@ -58,16 +63,13 @@ const Header = () => {
               cursor: "pointer",
             }}
           />
-
-          {/* Brand Name & Titles */}
           <Box sx={{ ml: "10px", display: "flex", flexDirection: "column" }}>
-            {/* Larger Brand Name */}
             <Typography
               variant="h4"
               sx={{
                 fontFamily: "'Roboto', sans-serif",
                 fontWeight: "700",
-                fontSize: "30px", // Bigger text
+                fontSize: "30px",
                 color: "#C08D5D",
                 textTransform: "capitalize",
                 letterSpacing: "1px",
@@ -75,13 +77,11 @@ const Header = () => {
             >
               Paramaksha Astrology
             </Typography>
-
-            {/* Smaller Coach Titles */}
             <Typography
               variant="body2"
               sx={{
                 fontFamily: "'Roboto', sans-serif",
-                fontSize: "11px", // Smaller text
+                fontSize: "11px",
                 fontWeight: "700",
                 color: "#777",
                 textTransform: "uppercase",
@@ -94,24 +94,25 @@ const Header = () => {
           </Box>
         </Box>
 
-        {/* Center: Navigation Menu (Desktop) */}
+        {/* Navigation Menu */}
         {!isMobile && (
           <Box sx={{ display: "flex", gap: "30px", alignItems: "center" }}>
             {menuItems.map((item) => (
-              <Typography
-                key={item}
-                variant="body1"
+              <Link
+                key={item.label}
+                component={RouterLink}
+                to={item.path}
                 sx={{
                   fontFamily: "'Roboto', sans-serif",
                   fontWeight: "600",
                   fontSize: "18px",
-                  cursor: "pointer",
                   color: "#333",
+                  textDecoration: "none",
                   "&:hover": { color: "#C08D5D" },
                 }}
               >
-                {item}
-              </Typography>
+                {item.label}
+              </Link>
             ))}
             <Button
               variant="contained"
@@ -123,7 +124,7 @@ const Header = () => {
                 color: "white",
                 padding: "8px 20px",
                 textTransform: "none",
-                borderRadius: "25px", // Rounded button
+                borderRadius: "25px",
                 "&:hover": { backgroundColor: "#A76F47" },
               }}
             >
@@ -132,7 +133,7 @@ const Header = () => {
           </Box>
         )}
 
-        {/* Right Side: Mobile Menu with Items & Button */}
+        {/* Mobile Menu */}
         {isMobile && (
           <Box>
             <IconButton onClick={handleMenuOpen} sx={{ color: "#333" }}>
@@ -140,16 +141,21 @@ const Header = () => {
             </IconButton>
             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
               {menuItems.map((item) => (
-                <MenuItem key={item} onClick={handleMenuClose}>
-                  <Typography
+                <MenuItem key={item.label} onClick={handleMenuClose}>
+                  <Link
+                    component={RouterLink}
+                    to={item.path}
                     sx={{
                       fontFamily: "Roboto",
                       fontSize: "18px",
                       fontWeight: "600",
+                      color: "#333",
+                      textDecoration: "none",
+                      "&:hover": { color: "#C08D5D" },
                     }}
                   >
-                    {item}
-                  </Typography>
+                    {item.label}
+                  </Link>
                 </MenuItem>
               ))}
               <MenuItem>
@@ -163,7 +169,7 @@ const Header = () => {
                     fontWeight: "700",
                     color: "white",
                     textTransform: "none",
-                    borderRadius: "25px", // Rounded button
+                    borderRadius: "25px",
                     "&:hover": { backgroundColor: "#A76F47" },
                   }}
                 >

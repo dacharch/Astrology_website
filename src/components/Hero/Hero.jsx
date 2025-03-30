@@ -5,7 +5,6 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// Define the slides data
 const slides = [
   {
     image: '/images/banner.jpg',
@@ -116,7 +115,7 @@ const HeroSection = () => {
                 <Box
                   sx={{
                     width: '100%',
-                    height: isMobile ? '60vh' : isTablet ? '75vh' : '90vh',
+                    height: isMobile ? '50vh' : isTablet ? '65vh' : '90vh',
                     position: 'relative',
                     display: 'flex',
                     alignItems: 'center',
@@ -130,7 +129,7 @@ const HeroSection = () => {
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover',
+                      objectFit: 'fill',
                     }}
                   />
 
