@@ -6,11 +6,9 @@ import Testimonials from '../Testimonials/Testimonials'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import Contact from "../Contact/Contact"
-import HeaderWithSidebar from '../HeaderWithSidebar/HeaderWithSiderbar'
 const Home = () => {
   return (
     <>
-       <HeaderWithSidebar/>
        <Header />
        <Hero/>
        <Service/>
