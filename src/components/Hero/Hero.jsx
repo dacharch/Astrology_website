@@ -1,58 +1,154 @@
-import { Container, Stack, Typography, Button, Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Box, Container, Typography, useMediaQuery } from "@mui/material";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
+const slides = [
+  {
+    image: "/images/banner.jpg",
+    text: (
+      <>
+        <Typography
+          component="p"
+          sx={{
+            fontSize: { xs: 10, sm: 14, md: 18 },
+            fontWeight: "bold",
+            textAlign: "left",
+            lineHeight: 1.4,
+            px: 2,
+          }}
+        >
+          "Illuminate your life path with astrology. Discover your cosmic blueprint and strike the balance with Vastu. Unlock the secrets of the universe and align your life with celestial energies for harmony and success."
+        </Typography>
+        <Typography
+          component="p"
+          sx={{
+            color: "yellow",
+            fontWeight: "bold",
+            textAlign: "right",
+            mt: 1,
+            fontSize: { xs: 14, sm: 16, md: 18 },
+          }}
+        >
+          — By Acharya Reena Sharma
+        </Typography>
+      </>
+    ),
+  },
+  {
+    image: "/images/banner3.jpg",
+    text: (
+      <>
+        <Typography
+          component="p"
+          sx={{
+            fontSize: { xs: 30, sm: 40, md: 50 },
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "white",
+            textTransform: "uppercase",
+            lineHeight: 0.9,
+          }}
+        >
+          ACHARYA
+        </Typography>
+        <Typography
+          component="p"
+          sx={{
+            fontSize: { xs: 35, sm: 45, md: 55 },
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "yellow",
+            textTransform: "uppercase",
+            textShadow: "3px 3px 6px rgba(0, 0, 0, 0.7)",
+          }}
+        >
+          REENA SHARMA
+        </Typography>
+        <Typography
+          component="p"
+          sx={{
+            fontSize: { xs: 20, sm: 25, md: 30 },
+            fontWeight: "bold",
+            textAlign: "left",
+            color: "yellow",
+          }}
+        >
+          • GLOBALLY ACCLAIMED ASTROLOGER
+          <br />
+          • VASTU CONSULTANT
+          <br />
+          • LIFE COACH
+        </Typography>
+      </>
+    ),
+    textPosition: "right",
+  },
+  {
+    image: "/images/banner2.jpg",
+  },
+];
 
 const HeroSection = () => {
-  const navigate = useNavigate() ;
-
-  
+  const isMobile = useMediaQuery("(max-width: 600px)");
+  const isTablet = useMediaQuery("(max-width: 1024px)");
 
   return (
-    <Box
-      sx={{
-        backgroundColor: "#fffbf2",
-        color: "#333", 
-        py: 8,
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack
-          direction={{ xs: "column", md: "row" }}
-          spacing={6}
-          alignItems="center"
+    <Box sx={{ backgroundColor: "#fffbf2", py: isMobile ? 2 : 4 }}>
+      <Container maxWidth="xl" disableGutters>
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          loop
+          style={{ width: "100vw", height: isMobile ? "60vh" : isTablet ? "75vh" : "90vh" }}
         >
-          {/* Left Side - Text Content */}
-          <Box flex={1} textAlign={{ xs: "center", md: "left" }}>
-            <Typography variant="h3" component="h1" gutterBottom sx={{ color: "#222" }}>
-              Welcome to Paramaksha Astrology
-            </Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ opacity: 0.9 }}>
-              Let the stars guide your journey, the planets shape your destiny, and cosmic energies bring harmony to your life. Unlock the wisdom of Astrology and Vastu for a prosperous and balanced existence.
-            </Typography>
-            <Button
-              onClick={()=>navigate("/contact")}
-              variant="contained"
-              color="primary"
-              size="large"
-              sx={{ mt: 3, px: 4, fontSize: "1.2rem" }}
-            >
-              Book a Session
-            </Button>
-          </Box>
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <Box
+                sx={{
+                  width: "100%",
+                  height: isMobile ? "35vh" : isTablet ? "75vh" : "90vh",
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: slide.text ? (slide.textPosition === "right" ? "flex-end" : "flex-start") : "center",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src={slide.image}
+                  alt={`Slide ${index + 1}`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "fill", // No cropping
+                  }}
+                />
 
-          {/* Right Side - Image */}
-          <Box flex={1} display="flex" justifyContent="center">
-            <img
-              src="/images/face.jpeg"
-              alt="Astro Vastu"
-              style={{
-                width: "100%",
-                maxWidth: "450px",
-                borderRadius: "20px",
-                boxShadow: "0px 10px 30px rgba(0,0,0,0.1)",
-              }}
-            />
-          </Box>
-        </Stack>
+                {/* Text Overlay (Responsive & Adjusts Automatically) */}
+                {slide.text && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      left: slide.textPosition === "right" ? "auto" : "5%",
+                      right: slide.textPosition === "right" ? "5%" : "auto",
+                      width: { xs: "90%", sm: "80%", md: "60%" },
+                      color: "#fff",
+                      padding: { xs: "10px", sm: "20px", md: "30px" },
+                      borderRadius: "10px",
+                      textAlign: "left",
+                      background: "rgba(0, 0, 0, 0.5)",
+                    }}
+                  >
+                    {slide.text}
+                  </Box>
+                )}
+              </Box>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Container>
     </Box>
   );

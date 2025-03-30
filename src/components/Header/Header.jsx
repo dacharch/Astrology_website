@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Box, IconButton, useMediaQuery, useTheme, Menu, MenuItem } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import MenuIcon from '@mui/icons-material/Menu';
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  IconButton,
+  useMediaQuery,
+  useTheme,
+  Menu,
+  MenuItem,
+  Button,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Header = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMenuOpen = (event) => {
@@ -21,154 +26,151 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+  const menuItems = ["Home", "About", "Services", "Blog", "Contact"];
+
   return (
-    <AppBar 
-      position="sticky" 
-      sx={{ 
-        backgroundColor: 'white', 
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    <AppBar
+      position="sticky"
+      sx={{
+        backgroundColor: "white",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         zIndex: 10,
-        padding: isMobile ? '5px' : '10px',
+        padding: "10px 20px",
       }}
     >
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
-        {/* Left side: Phone number and email */}
-        <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-          <IconButton sx={{ color: '#333' }}>
-            <PhoneIcon />
-          </IconButton>
-          {!isMobile && (
-            <Typography variant="body1" sx={{ color: '#333', marginLeft: '8px' }}>
-              +91 9560111902
-            </Typography>
-          )}
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        {/* Left Side: Logo & Brand Name */}
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          {/* Logo */}
+          <Box
+            component="img"
+            src="/images/logo.png"
+            alt="Logo"
+            sx={{
+              height: "70px",
+              width: "auto",
+              cursor: "pointer",
+            }}
+          />
 
-          <IconButton sx={{ color: '#333', marginLeft: isMobile ? '5px' : '20px' }}>
-            <EmailIcon />
-          </IconButton>
-          {!isMobile && (
-            <Typography variant="body1" sx={{ color: '#333', marginLeft: '8px' }}>
-              paramakshaastrology@gmail.com
+          {/* Brand Name & Titles */}
+          <Box sx={{ ml: "10px", display: "flex", flexDirection: "column" }}>
+            {/* Larger Brand Name */}
+            <Typography
+              variant="h4"
+              sx={{
+                fontFamily: "'Roboto', sans-serif",
+                fontWeight: "700",
+                fontSize: "30px", // Bigger text
+                color: "#C08D5D",
+                textTransform: "capitalize",
+                letterSpacing: "1px",
+              }}
+            >
+              Paramaksha Astrology
             </Typography>
-          )}
+
+            {/* Smaller Coach Titles */}
+            <Typography
+              variant="body2"
+              sx={{
+                fontFamily: "'Roboto', sans-serif",
+                fontSize: "11px", // Smaller text
+                fontWeight: "700",
+                color: "#777",
+                textTransform: "uppercase",
+                letterSpacing: "0.8px",
+                paddingLeft: 2,
+              }}
+            >
+              Astro Coach • Vastu Coach • Life Coach
+            </Typography>
+          </Box>
         </Box>
 
-        {/* Right side: Social Media Hamburger Menu */}
-        {isMobile ? (
+        {/* Center: Navigation Menu (Desktop) */}
+        {!isMobile && (
+          <Box sx={{ display: "flex", gap: "30px", alignItems: "center" }}>
+            {menuItems.map((item) => (
+              <Typography
+                key={item}
+                variant="body1"
+                sx={{
+                  fontFamily: "'Roboto', sans-serif",
+                  fontWeight: "600",
+                  fontSize: "18px",
+                  cursor: "pointer",
+                  color: "#333",
+                  "&:hover": { color: "#C08D5D" },
+                }}
+              >
+                {item}
+              </Typography>
+            ))}
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#C08D5D",
+                fontFamily: "'Roboto', sans-serif",
+                fontSize: "18px",
+                fontWeight: "700",
+                color: "white",
+                padding: "8px 20px",
+                textTransform: "none",
+                borderRadius: "25px", // Rounded button
+                "&:hover": { backgroundColor: "#A76F47" },
+              }}
+            >
+              Consult Now
+            </Button>
+          </Box>
+        )}
+
+        {/* Right Side: Mobile Menu with Items & Button */}
+        {isMobile && (
           <Box>
-            <IconButton onClick={handleMenuOpen} sx={{ color: '#333' }}>
+            <IconButton onClick={handleMenuOpen} sx={{ color: "#333" }}>
               <MenuIcon />
             </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleMenuClose}
-            >
-              <MenuItem onClick={handleMenuClose}>
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
-                  <FacebookIcon sx={{ color: '#1877F2', marginRight: '10px' }} /> Facebook
-                </a>
-              </MenuItem>
-              <MenuItem onClick={handleMenuClose}>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
-                  <TwitterIcon sx={{ color: '#1DA1F2', marginRight: '10px' }} /> Twitter
-                </a>
-              </MenuItem>
-              <MenuItem onClick={handleMenuClose}>
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
-                  <InstagramIcon sx={{ color: '#E4405F', marginRight: '10px' }} /> Instagram
-                </a>
-              </MenuItem>
-              <MenuItem onClick={handleMenuClose}>
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
-                  <LinkedInIcon sx={{ color: '#0077B5', marginRight: '10px' }} /> LinkedIn
-                </a>
+            <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
+              {menuItems.map((item) => (
+                <MenuItem key={item} onClick={handleMenuClose}>
+                  <Typography
+                    sx={{
+                      fontFamily: "Roboto",
+                      fontSize: "18px",
+                      fontWeight: "600",
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                </MenuItem>
+              ))}
+              <MenuItem>
+                <Button
+                  fullWidth
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#C08D5D",
+                    fontFamily: "Roboto",
+                    fontSize: "18px",
+                    fontWeight: "700",
+                    color: "white",
+                    textTransform: "none",
+                    borderRadius: "25px", // Rounded button
+                    "&:hover": { backgroundColor: "#A76F47" },
+                  }}
+                >
+                  Consult Now
+                </Button>
               </MenuItem>
             </Menu>
-          </Box>
-        ) : (
-          <Box>
-            <IconButton 
-              sx={{ 
-                marginLeft: '5px', 
-                color: '#1877F2', 
-                backgroundColor: '#1877F2', 
-                borderRadius: '50%', 
-                padding: '6px', 
-                width: '35px', 
-                height: '35px',
-                '&:hover': {
-                  transform: 'scale(1.1)',
-                  transition: 'transform 0.1s ease',
-                  backgroundColor: '#1877F2', // Ensure background color remains the same
-                }
-              }}
-            >
-              <a href="https://www.facebook.com/people/Paramaksha-Astrology/100076400913764/" target="_blank" rel="noopener noreferrer">
-                <FacebookIcon sx={{ color: 'white', fontSize: '18px' }} />
-              </a>
-            </IconButton>
-            
-            <IconButton 
-              sx={{ 
-                marginLeft: '5px', 
-                color: '#E4405F', 
-                backgroundColor: '#E4405F', 
-                borderRadius: '50%', 
-                padding: '6px', 
-                width: '35px', 
-                height: '35px',
-                '&:hover': {
-                  transform: 'scale(1.1)',
-                  transition: 'transform 0.1s ease',
-                  backgroundColor: '#E4405F', // Ensure background color remains the same
-                }
-              }}
-            >
-              <a href="https://www.instagram.com/paramaksha/" target="_blank" rel="noopener noreferrer">
-                <InstagramIcon sx={{ color: 'white', fontSize: '18px' }} />
-              </a>
-            </IconButton>
-            <IconButton 
-              sx={{ 
-                marginLeft: '5px', 
-                color: '#0077B5', 
-                backgroundColor: '#0077B5', 
-                borderRadius: '50%', 
-                padding: '6px', 
-                width: '35px', 
-                height: '35px',
-                '&:hover': {
-                  transform: 'scale(1.1)',
-                  transition: 'transform 0.1s ease',
-                  backgroundColor: '#0077B5', // Ensure background color remains the same
-                }
-              }}
-            >
-              <a href="https://linkedin.com/in/acharya-reena-sharma-abb50a269" target="_blank" rel="noopener noreferrer">
-                <LinkedInIcon sx={{ color: 'white', fontSize: '18px' }} />
-              </a>
-            </IconButton>
-            <IconButton 
-              sx={{ 
-                marginLeft: '5px', 
-                color: '#1DA1F2', 
-                backgroundColor: '#1DA1F2', 
-                borderRadius: '50%', 
-                padding: '6px', 
-                width: '35px', 
-                height: '35px',
-                '&:hover': {
-                  transform: 'scale(1.1)',
-                  transition: 'transform 0.1s ease',
-                  backgroundColor: '#1DA1F2', // Ensure background color remains the same
-                }
-              }}
-            >
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <TwitterIcon sx={{ color: 'white', fontSize: '18px' }} />
-              </a>
-            </IconButton>
           </Box>
         )}
       </Toolbar>

@@ -13,6 +13,7 @@ import Tarrot from './components/Service/ServiceParts/Tarrot'
 import CompleteKundli from './components/Service/ServiceParts/CompleteKundli'
 import VarshikRashiFal from './components/Service/ServiceParts/VarshikRashiFal'
 import SingleQuestion from './components/Service/ServiceParts/SingleQuestion'
+import VastuSixteen from './components/Service/ServiceParts/VastuSixteen'
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
            <Route path="services/completekundli" element={<CompleteKundli/>} />
            <Route path="services/varshik" element={<VarshikRashiFal/>} />
            <Route path="services/singlequestion" element={<SingleQuestion/>} />
+           <Route path="services/vastu16" element={<VastuSixteen/>} />
+           
         </Routes>
         <WhatsAppButton/>
       </Router>

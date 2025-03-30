@@ -17,7 +17,7 @@ const Videos = () => {
         maxWidth: "1200px",
       }}
     >
-      <Typography sx={{ fontSize: "25px", fontWeight: "bold", marginBottom: "20px" }}>
+      <Typography sx={{ fontSize: "25px", fontWeight: "bold", marginBottom: "20px",color:'#002147' }}>
         Videos
       </Typography>
 

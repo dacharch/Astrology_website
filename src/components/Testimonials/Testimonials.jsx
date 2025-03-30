@@ -2,13 +2,18 @@ import React from 'react';
 import { Box, Card, CardContent, Typography, Avatar } from '@mui/material';
 import { styled } from '@mui/system';
 
+const primaryBlue = '#002147';
+const darkGray = '#333';
+const lightGray = '#f9f9f9';
+const softOrange = '#ff8e53';
+
 const TestimonialsContainer = styled(Box)(({ theme }) => ({
   fontFamily: 'Montserrat, sans-serif',
-  color: '#333',
-  backgroundColor: '#f9f9f9',
+  color: darkGray,
+  backgroundColor: lightGray,
   padding: '60px 20px',
   display: 'flex',
-  flexDirection: 'column',  // Stack content vertically for small screens
+  flexDirection: 'column',  
   justifyContent: 'center',
   alignItems: 'center',
   boxShadow: '0px 10px 40px rgba(0, 0, 0, 0.1)',
@@ -17,9 +22,9 @@ const TestimonialsContainer = styled(Box)(({ theme }) => ({
   margin: '0 auto',
   textAlign: 'center',
   gap: '40px',
-  overflow: 'hidden',  // Prevent overflow
+  overflow: 'hidden',
   [theme.breakpoints.down('sm')]: {
-    padding: '40px 10px',  // Adjust padding for smaller screens
+    padding: '40px 10px',
   },
 }));
 
@@ -28,9 +33,9 @@ const TestimonialCard = styled(Card)(({ theme }) => ({
   boxShadow: '0px 10px 40px rgba(0, 0, 0, 0.1)',
   borderRadius: '10px',
   textAlign: 'center',
-  flexShrink: 0,  // Prevent shrinking in row layout
+  flexShrink: 0, 
   [theme.breakpoints.down('sm')]: {
-    maxWidth: '100%',  // Make cards full-width on smaller screens
+    maxWidth: '100%',
   },
 }));
 
@@ -39,7 +44,7 @@ const TestimonialAvatar = styled(Avatar)(({ theme }) => ({
   height: '80px',
   margin: '0 auto',
   marginBottom: '16px',
-  border: '3px solid #ff8e53',
+  border: `3px solid ${softOrange}`,
 }));
 
 const TestimonialsPage = () => {
@@ -63,17 +68,16 @@ const TestimonialsPage = () => {
 
   return (
     <TestimonialsContainer>
-      <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', color: primaryBlue }}>
         What Our Customers Say
       </Typography>
 
-      {/* Testimonial content in a row */}
       <Box sx={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
         {testimonials.map((testimonial, index) => (
           <TestimonialCard key={index}>
             <CardContent>
               <TestimonialAvatar src={testimonial.image} alt={testimonial.name} />
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
+              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' ,color:primaryBlue }}>
                 {testimonial.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" sx={{ lineHeight: 1.6 }}>

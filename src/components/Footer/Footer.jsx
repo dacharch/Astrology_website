@@ -4,14 +4,15 @@ import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: '#000', color: 'white', padding: '40px 0' }}>
+    <footer style={{ backgroundColor: '#002147', color: 'white', padding: '40px 0' }}>
       <Container>
         <Box 
           display="flex" 
           flexDirection={{ xs: 'column', sm: 'row' }} 
           justifyContent="space-between" 
-          alignItems="flex-start" 
-          gap={4}
+          alignItems={{ xs: 'center', sm: 'flex-start' }} 
+          textAlign={{ xs: 'center', sm: 'left' }}
+          gap={{ xs: 3, sm: 4 }}
         >
           {/* Left Section: Contact Information */}
           <Box flex={1}>
@@ -31,21 +32,15 @@ const Footer = () => {
             <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
               Quick Links
             </Typography>
-            <Typography variant="body1">
-              <a href="/" style={{ color: 'white', textDecoration: 'none' }}>
-                Home
-              </a>
-            </Typography>
-            <Typography variant="body1">
-              <a href="/about" style={{ color: 'white', textDecoration: 'none' }}>
-                About
-              </a>
-            </Typography>
-            <Typography variant="body1">
-              <a href="/contact" style={{ color: 'white', textDecoration: 'none' }}>
-                Contact
-              </a>
-            </Typography>
+            <Box display="flex" flexDirection="column" alignItems={{ xs: "center", sm: "flex-start" }}>
+              {["Home", "About", "Contact"].map((text, index) => (
+                <Typography key={index} variant="body1" sx={{ my: 0.5 }}>
+                  <a href={`/${text.toLowerCase()}`} style={{ color: 'white', textDecoration: 'none' }}>
+                    {text}
+                  </a>
+                </Typography>
+              ))}
+            </Box>
           </Box>
 
           {/* Right Section: Social Media */}
@@ -53,18 +48,18 @@ const Footer = () => {
             <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
               Follow Us
             </Typography>
-            <Box display="flex" justifyContent="center" gap={2}>
+            <Box display="flex" justifyContent="center" gap={1.5} flexWrap="wrap">
               <IconButton href="https://www.facebook.com/people/Paramaksha-Astrology/100076400913764/" target="_blank">
-                <Facebook sx={{ color: '#1877F2' }} />
+                <Facebook sx={{ color: '#1877F2', fontSize: { xs: 30, sm: 35 } }} />
               </IconButton>
               <IconButton href="https://twitter.com" target="_blank">
-                <Twitter sx={{ color: '#1DA1F2' }} />
+                <Twitter sx={{ color: '#1DA1F2', fontSize: { xs: 30, sm: 35 } }} />
               </IconButton>
               <IconButton href="https://www.instagram.com/paramaksha/" target="_blank">
-                <Instagram sx={{ color: '#E4405F' }} />
+                <Instagram sx={{ color: '#E4405F', fontSize: { xs: 30, sm: 35 } }} />
               </IconButton>
               <IconButton href="https://www.linkedin.com/in/acharya-reena-sharma-abb50a269/" target="_blank">
-                <LinkedIn sx={{ color: '#0077B5' }} />
+                <LinkedIn sx={{ color: '#0077B5', fontSize: { xs: 30, sm: 35 } }} />
               </IconButton>
             </Box>
           </Box>

@@ -4,64 +4,58 @@ import { useNavigate } from 'react-router-dom';
 
 const services = [
   { 
-    img: '/images/birth.jpeg', 
-    title: 'Birth Journal', 
-    desc: "Unlock the secrets of life's journey through an insightful analysis of your birth journal.", 
-    href:"/services/journal"
-  },
-
-  { 
     img: '/images/vastu.jpeg', 
     title: 'Astro Vastu Consultancy', 
     desc: 'Everything is varying energies....surround yourself with happy ones',
-    href:"/services/vastu"
+    href: "/services/vastu"
   },
-
   { 
     img: '/images/face.jpeg', 
     title: 'Face reading',
-    desc: 'Face reading empowers you with better decision making wisdom. Learn to read face and claim on charisma.',
-    href:"/services/reading"
+    desc: 'Face reading empowers you with better decision-making wisdom. Learn to read face and claim on charisma.',
+    href: "/services/reading"
   },
-
   { 
     img: '/images/card.jpg',
     title: 'Tarot Card Reading', 
     desc: 'Sometimes, a question irks you. Getting answered through Tarot, you are about clarity and towards calmness.',
-    href:"/services/tarrot",
+    href: "/services/tarrot",
   },
-
   { 
     img: '/images/life.jpg', 
     title: 'Life Style Coach',
     desc: 'To harness Power, Peace and Prosperity, coach yourself towards style and substance.',
-    href:'/services/coach'
+    href: '/services/coach'
   },
-  
   { 
     img: '/images/palmistry.jpg',
     title: 'Palmistry', 
     desc: "Your hands hold your future. Discover what's in for you and tread towards bliss.",
-    href:'/services/palmistry'
+    href: '/services/palmistry'
   },
   {
-    img:'/images',
-    title:'Complete Kundli',
-    desc:'Discover the cosmic blueprint of your life with our Complete Kundli Service. From detailed birth chart analysis to career, marriage, health, and finance predictions',
-    href:'/services/completeKundli'
-  
+    img: '/images',
+    title: 'Complete Kundli',
+    desc: 'Discover the cosmic blueprint of your life with our Complete Kundli Service. From detailed birth chart analysis to career, marriage, health, and finance predictions',
+    href: '/services/completeKundli'
   },
   {
-    img:'/images',
-    title:'Varshik Rashifal',
-    desc:'Varshik Rashifal provides insights into your career, relationships, health, and finances based on planetary movements. ',
-    href:"/services/varshik"
+    img: '/images',
+    title: 'Varshik Rashifal',
+    desc: 'Varshik Rashifal provides insights into your career, relationships, health, and finances based on planetary movements.',
+    href: "/services/varshik"
   },
   {
-    img:'/images',
-    title:'Single Question Prediction',
-    desc:'Have a pressing question about your career, relationships, finances, or health?',
-    href:"/services/singlequestion"
+    img: '/images',
+    title: 'Single Question Prediction',
+    desc: 'Have a pressing question about your career, relationships, finances, or health?',
+    href: "/services/singlequestion"
+  },
+  {
+    img: '/images',
+    title: "Vastu 16",
+    desc: "Vastu Shastra divides any space into 16 energy zones, each influencing key aspects of life such as health, wealth, relationships, career, and overall well-being.",
+    href: "/services/vastu16"
   }
 ];
 
@@ -84,7 +78,14 @@ const Service = () => {
         cursor: 'pointer'
       }}
     >
-      <Typography sx={{ fontSize: { xs: '20px', sm: '25px' }, fontWeight: 'bold', marginBottom: '20px' }}>
+      <Typography 
+        sx={{ 
+          fontSize: { xs: '20px', sm: '25px' }, 
+          fontWeight: 'bold', 
+          marginBottom: '20px',
+          color: '#002147' // Dark blue color
+        }}
+      >
         Featured Services
       </Typography>
 
@@ -136,10 +137,23 @@ const Service = () => {
                 e.currentTarget.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.3)';
               }}
             />
-            <Typography sx={{ fontSize: { xs: '14px', sm: '18px' }, fontWeight: 'bold', marginBottom: '10px' }}>
+            <Typography 
+              sx={{ 
+                fontSize: { xs: '14px', sm: '18px' }, 
+                fontWeight: 'bold', 
+                marginBottom: '10px',
+                color: '#002147' // Dark blue color
+              }}
+            >
               {service.title}
             </Typography>
-            <Typography sx={{ fontSize: { xs: '12px', sm: '14px' }, marginBottom: '10px' }}>
+            <Typography 
+              sx={{ 
+                fontSize: { xs: '12px', sm: '14px' }, 
+                marginBottom: '10px',
+                color: '#002147' // Dark blue color
+              }}
+            >
               {service.desc}
             </Typography>
 
@@ -147,15 +161,18 @@ const Service = () => {
               onClick={() => navigate(service.href)}
               sx={{
                 textDecoration: 'none',
-                backgroundColor: 'black',
-                color: '#fff',
+                backgroundColor: '#002147', // Dark blue background
+                color: '#fff', // White text
                 padding: '10px 20px',
                 borderRadius: '10px',
                 cursor: 'pointer',
                 display: 'inline-block',
+                '&:hover': {
+                  backgroundColor: '#001533' // Darker blue on hover
+                }
               }}
             >
-              Get Started Here
+              Book a Session
             </Link>
           </Box>
         ))}
