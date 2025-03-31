@@ -81,7 +81,7 @@ const TarotCardPage = () => {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: 'black',
+          
               color: 'white',
               padding: '10px 20px',
               borderRadius: '10px',

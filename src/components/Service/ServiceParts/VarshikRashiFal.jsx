@@ -104,9 +104,6 @@ const VarshikRashiFal = () => {
           >
            Prepare yourself for the year ahead with expert astrological insights and personalized solutions for a successful and fulfilling journey!
           </Typography>
-
-          
-
           <Button
             variant="contained"
             sx={{
