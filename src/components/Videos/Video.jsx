@@ -80,7 +80,7 @@ const Videos = () => {
         sx={{
           marginTop: "30px",
           padding: "12px 30px",
-          backgroundColor: "#000",
+        
           color: "#fff",
           fontSize: "18px",
           borderRadius: "25px",
