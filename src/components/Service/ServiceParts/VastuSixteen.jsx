@@ -46,7 +46,7 @@ const VastuSixteen = () => {
               width: '150px',
               height: '150px',
               borderRadius: '50%',
-              backgroundImage: 'url(/images/)', // Update with correct path
+              backgroundImage: 'url(/images/vastu16.jpg)', // Update with correct path
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -110,10 +110,11 @@ const VastuSixteen = () => {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: 'black',
+              
               color: 'white',
               padding: '10px 20px',
               borderRadius: '10px',
+               backgroundColor: '#001533',
               '&:hover': {
                 backgroundColor: '#333',
               },

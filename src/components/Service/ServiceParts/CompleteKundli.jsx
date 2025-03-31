@@ -46,7 +46,7 @@ const CompleteKundli = () => {
               width: '150px',
               height: '150px',
               borderRadius: '50%',
-              backgroundImage: 'url(/images/)', // Update with correct path
+              backgroundImage: 'url(/images/completkundli.jpg)', // Update with correct path
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -106,6 +106,7 @@ const CompleteKundli = () => {
               '&:hover': {
                 backgroundColor: '#333',
               },
+              backgroundColor: '#001533' 
             }}
           >
             Get Started Here

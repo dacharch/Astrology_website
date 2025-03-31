@@ -90,7 +90,8 @@ const Videos = () => {
           textDecoration: "none",
           boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
           transition: "background-color 0.3s, box-shadow 0.3s",
-          display: "inline-block", // Proper block for alignment
+          display: "inline-block", 
+          backgroundColor: '#001533' // Proper block for alignment
         }}
       >
         View Channel

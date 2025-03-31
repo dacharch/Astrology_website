@@ -97,10 +97,11 @@ Supportive energy is a pre requisite for balance and prosperity in any plot of s
           <Button
             variant="contained"
             sx={{
-              backgroundColor: 'black',
+              
               color: 'white',
               padding: '10px 20px',
               borderRadius: '10px',
+               backgroundColor: '#001533',
               '&:hover': {
                 backgroundColor: '#333',
               },

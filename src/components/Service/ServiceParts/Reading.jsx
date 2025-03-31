@@ -120,6 +120,7 @@ const TarotCardPage = () => {
               '&:hover': {
                 backgroundColor: '#333',
               },
+              backgroundColor: '#001533' 
             }}
           >
             Get Started Here

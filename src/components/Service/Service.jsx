@@ -34,25 +34,25 @@ const services = [
     href: '/services/palmistry'
   },
   {
-    img: '/images',
+    img: '/images/completkundli.jpg',
     title: 'Complete Kundli',
     desc: 'Discover the cosmic blueprint of your life with our Complete Kundli Service. From detailed birth chart analysis to career, marriage, health, and finance predictions',
     href: '/services/completeKundli'
   },
   {
-    img: '/images',
+    img: '/images/varshikrashifal.jpg',
     title: 'Varshik Rashifal',
     desc: 'Varshik Rashifal provides insights into your career, relationships, health, and finances based on planetary movements.',
     href: "/services/varshik"
   },
   {
-    img: '/images',
+    img: '/images/singlequestion.jpg',
     title: 'Single Question Prediction',
     desc: 'Have a pressing question about your career, relationships, finances, or health?',
     href: "/services/singlequestion"
   },
   {
-    img: '/images',
+    img: '/images/vastu16.jpg',
     title: "Vastu 16",
     desc: "Vastu Shastra divides any space into 16 energy zones, each influencing key aspects of life such as health, wealth, relationships, career, and overall well-being.",
     href: "/services/vastu16"
