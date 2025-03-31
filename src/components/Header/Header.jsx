@@ -14,6 +14,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@mui/material/Link";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const Header = () => {
   const theme = useTheme();
@@ -26,6 +29,14 @@ const Header = () => {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleCall = () => {
+    window.location.href = "tel:+919560111902"; // Opens dialer
+  };
+
+  const handleEmail = () => {
+    window.location.href = "mailto:paramakshaastrology@gmail.com"; // Opens email client
   };
 
   const menuItems = [
@@ -114,22 +125,38 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#C08D5D",
-                fontFamily: "'Roboto', sans-serif",
-                fontSize: "18px",
-                fontWeight: "700",
-                color: "white",
-                padding: "8px 20px",
-                textTransform: "none",
-                borderRadius: "25px",
-                "&:hover": { backgroundColor: "#A76F47" },
-              }}
-            >
-              Consult Now
-            </Button>
+
+            {/* Consult Now Button with Contact Options */}
+            <Box>
+              <Button
+                variant="contained"
+                onClick={handleMenuOpen}
+                endIcon={<ArrowDropDownIcon />}
+                sx={{
+                  backgroundColor: "#C08D5D",
+                  fontFamily: "'Roboto', sans-serif",
+                  fontSize: "18px",
+                  fontWeight: "700",
+                  color: "white",
+                  padding: "8px 20px",
+                  textTransform: "none",
+                  borderRadius: "25px",
+                  "&:hover": { backgroundColor: "#A76F47" },
+                }}
+              >
+                Consult Now
+              </Button>
+              <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
+                <MenuItem onClick={handleCall}>
+                  <PhoneIcon sx={{ marginRight: 1, color: "#C08D5D" }} />
+                  Call: +91 9560111902
+                </MenuItem>
+                <MenuItem onClick={handleEmail}>
+                  <EmailIcon sx={{ marginRight: 1, color: "#C08D5D" }} />
+                  Email: paramakshaastrology@gmail.com
+                </MenuItem>
+              </Menu>
+            </Box>
           </Box>
         )}
 
@@ -158,23 +185,15 @@ const Header = () => {
                   </Link>
                 </MenuItem>
               ))}
-              <MenuItem>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#C08D5D",
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: "700",
-                    color: "white",
-                    textTransform: "none",
-                    borderRadius: "25px",
-                    "&:hover": { backgroundColor: "#A76F47" },
-                  }}
-                >
-                  Consult Now
-                </Button>
+
+              {/* Direct Call and Email on Mobile */}
+              <MenuItem onClick={handleCall}>
+                <PhoneIcon sx={{ marginRight: 1, color: "#C08D5D" }} />
+                Call Now
+              </MenuItem>
+              <MenuItem onClick={handleEmail}>
+                <EmailIcon sx={{ marginRight: 1, color: "#C08D5D" }} />
+                Email Us
               </MenuItem>
             </Menu>
           </Box>

@@ -75,7 +75,7 @@ const Contact = () => {
           sx={{ py: 1.5, fontSize: "1rem", backgroundColor: '#001533'  }}
          
         >
-          Send via WhatsApp
+          Contact Us
         </Button>
       </Box>
     </Container>
