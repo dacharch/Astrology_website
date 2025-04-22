@@ -3,6 +3,12 @@ import { Box, Typography, Button } from '@mui/material';
 import Header from '../../Header/Header';
 
 const TarotCardPage = () => {
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "91956011902"; 
+    const whatsappURL = `https://wa.me/${phoneNumber}`;
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
     <>
       <Header />
@@ -28,7 +34,6 @@ const TarotCardPage = () => {
         >
           Birth Journal 
         </Typography>
-        
 
         <Box
           sx={{
@@ -73,11 +78,10 @@ const TarotCardPage = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
             }}
           >
-           The celestial bodies (planets and stars) effect your life at every step. Decoding their position and alignment at the time of birth will help you understand the underlying cause of your circumstances - both good and challenging. With profound insights, you decipher the narrative and motive of your life which helps
-           you sail smooth.
+            The celestial bodies (planets and stars) affect your life at every step. Decoding their position and alignment at the time of birth will help you understand the underlying cause of your circumstances - both good and challenging. With profound insights, you decipher the narrative and motive of your life which helps you sail smooth.
           </Typography>
 
           <Typography
@@ -87,11 +91,10 @@ const TarotCardPage = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
             }}
           >
-          Astrology is about discovering your strengths which come of cosmic influences as you allow clarity upon your mind and direction towards your actions.
-          This lets you better and mindful decisions.
+            Astrology is about discovering your strengths which come of cosmic influences as you allow clarity upon your mind and direction towards your actions. This lets you make better and mindful decisions.
           </Typography>
 
           <Typography
@@ -101,13 +104,11 @@ const TarotCardPage = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
             }}
           >
             In a personalised session, your horoscope is vividly studied and discussed followed by an explanation of appropriate and effective remedies. You get to express your concerns and leave with a bagful of hope and faith.
           </Typography>
-
-          
 
           <Button
             variant="contained"
@@ -115,21 +116,18 @@ const TarotCardPage = () => {
               color: 'white',
               padding: '10px 20px',
               borderRadius: '10px',
-              backgroundColor: 'red' ,
+              backgroundColor: 'red',
               '&:hover': {
                 backgroundColor: '#333',
               },
-              
             }}
+            onClick={handleWhatsAppRedirect}
           >
             Get Started Here
           </Button>
         </Box>
       </Box>
-
-
     </>
-
   );
 };
 

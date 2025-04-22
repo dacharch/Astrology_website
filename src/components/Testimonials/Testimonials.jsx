@@ -50,7 +50,7 @@ const TestimonialAvatar = styled(Avatar)(({ theme }) => ({
 const TestimonialsPage = () => {
   const testimonials = [
     {
-      name: 'Richa Anurdha',
+      name: 'Richa Anirudh',
       image: 'images/richa.jpg',
       message: "Life had always felt unpredictable, and I was searching for clarity and guidance. Consulting with Reena Sharma completely changed my perspective. Her insights into my birth chart were not just accurate but deeply meaningful. She helped me understand my strengths, challenges, and even the timing of major life events. With her advice, I gained confidence in my decisions and found a sense of purpose I never thought possible."
     },
@@ -60,10 +60,12 @@ const TestimonialsPage = () => {
       message: "For years, I found myself stuck in a toxic relationship that drained my energy and left me questioning my self-worth. Meeting Reena Sharma was a turning point in my life. Her astrological insights helped me recognize the patterns that were keeping me trapped and gave me the courage to break free."
     },
     {
-      name: 'Archana Chandra',
+      name: 'Bharti Trivedi',
       image: 'images/archana.png',
       message: "I had the pleasure of consulting with Reena Sharma for my astrological needs, and I was truly amazed by her insights and accuracy. Her detailed analysis of my birth chart and the way she explained the planetary influences in my life made everything so clear."
     },
+    
+    
   ];
 
   return (

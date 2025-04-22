@@ -3,6 +3,13 @@ import { Box, Typography, Button } from '@mui/material';
 import Header from '../../Header/Header';
 
 const VarshikRashiFal = () => {
+  
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "91956011902"; 
+    const whatsappURL = `https://wa.me/${phoneNumber}`;
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
     <>
       <Header />
@@ -116,6 +123,7 @@ const VarshikRashiFal = () => {
                 backgroundColor: '#333',
               },
             }}
+            onClick={handleWhatsAppRedirect}
           >
             Get Started Here
           </Button>

@@ -17,16 +17,7 @@ const slides = [
   {
     image: '/images/banner.jpg',
     text: (
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          textAlign: 'left',
-          width: '100%',
-          px: { xs: 2, sm: 4, md: 6 },
-        }}
-      >
+      <Box sx={{ maxWidth: '90%', mx: 'auto' }}>
         <Typography
           component="p"
           sx={{
@@ -43,6 +34,7 @@ const slides = [
           sx={{
             color: 'yellow',
             fontWeight: 'bold',
+            textAlign: 'right',
             mt: 2,
             fontSize: { xs: '16px', sm: '18px', md: '20px' },
           }}
@@ -51,100 +43,57 @@ const slides = [
         </Typography>
       </Box>
     ),
-    textPosition: 'left',
+    textPosition: 'right',
   },
   {
     image: '/images/banner3.jpg',
     text: (
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          textAlign: 'center',
-          width: '100%',
-        }}
-      >
-        <Box sx={{ mb: 3 }}>
-          <Typography
-            component="p"
-            sx={{
-              fontSize: { xs: '32px', sm: '40px', md: '48px' },
-              fontWeight: 'bold',
-              color: 'white',
-              textTransform: 'uppercase',
-              lineHeight: 0.9,
-            }}
-          >
-            ACHARYA
-          </Typography>
-          <Typography
-            component="p"
-            sx={{
-              fontSize: { xs: '36px', sm: '45px', md: '55px' },
-              fontWeight: 'bold',
-              color: 'yellow',
-              textTransform: 'uppercase',
-              textShadow: '.1875rem .1875rem .375rem rgba(0, 0, 0, 0.7)',
-            }}
-          >
-            REENA SHARMA
-          </Typography>
-        </Box>
-
-        <Box
+      <Box sx={{ maxWidth: '90%', mx: 'auto' }}>
+        <Typography
+          component="p"
           sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            width: '100%',
+            fontSize: { xs: '32px', sm: '40px', md: '48px' },
+            fontWeight: 'bold',
+            color: 'white',
+            textTransform: 'uppercase',
+            lineHeight: 1,
+            textAlign: 'center',
           }}
         >
-          <Box sx={{ textAlign: 'left', pr: { xs: 2, sm: 4, md: 6 } }}>
-            {[
-              'GLOBALLY ACCLAIMED ASTROLOGER',
-              'VASTU CONSULTANT',
-              'LIFE COACH',
-            ].map((line, i) => (
-              <Box
-                key={i}
-                sx={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                }}
-              >
-                <Typography
-                  sx={{
-                    color: 'yellow',
-                    fontWeight: 'bold',
-                    fontSize: { xs: '20px', sm: '25px', md: '30px' },
-                    width: '1.5rem',
-                    minWidth: '1.5rem',
-                    textAlign: 'right',
-                  }}
-                >
-                  •
-                </Typography>
-                <Typography
-                  sx={{
-                    color: 'yellow',
-                    fontWeight: 'bold',
-                    fontSize: { xs: '20px', sm: '25px', md: '30px' },
-                    pl: 1,
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {line}
-                </Typography>
-              </Box>
-            ))}
-          </Box>
+          ACHARYA
+        </Typography>
+        <Typography
+          component="p"
+          sx={{
+            fontSize: { xs: '36px', sm: '45px', md: '55px' },
+            fontWeight: 'bold',
+            color: 'yellow',
+            textTransform: 'uppercase',
+            textAlign: 'center',
+            textShadow: '.1875rem .1875rem .375rem rgba(0, 0, 0, 0.7)',
+          }}
+        >
+          REENA SHARMA
+        </Typography>
+
+        <Box sx={{ mt: 2 }}>
+          {['GLOBALLY ACCLAIMED ASTROLOGER', 'VASTU CONSULTANT', 'LIFE COACH'].map((line, i) => (
+            <Typography
+              key={i}
+              sx={{
+                color: 'yellow',
+                fontWeight: 'bold',
+                fontSize: { xs: '20px', sm: '25px', md: '30px' },
+                textAlign: 'center',
+              }}
+            >
+              {line}
+            </Typography>
+          ))}
         </Box>
       </Box>
     ),
-    textPosition: 'right',
-  },
-  {
-    image: '/images/banner2.jpg',
+    textPosition: 'center',
   },
 ];
 
@@ -153,59 +102,57 @@ theme = responsiveFontSizes(theme);
 
 const HeroSection = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const height = isMobile ? '30vh' : '100vh';  // Full height for mobile as well
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ backgroundColor: '#fffbf2', py: isMobile ? 2 : 4 }}>
+      <Box sx={{ py: 0, marginBottom: '10px' }}>
         <Container maxWidth="xl" disableGutters>
           <Swiper
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             loop
-            style={{
-              width: '100vw',
-              height: isMobile ? '60vh' : isTablet ? '75vh' : '90vh',
-            }}
+            style={{ width: '100vw', height }}
           >
             {slides.map((slide, index) => (
               <SwiperSlide key={index}>
                 <Box
                   sx={{
                     width: '100%',
-                    height: isMobile ? '50vh' : isTablet ? '65vh' : '90vh',
+                    height,
                     position: 'relative',
                     display: 'flex',
+                    justifyContent: 'center',
                     alignItems: 'center',
-                    justifyContent: slide.text
-                      ? slide.textPosition === 'right'
-                        ? 'flex-end'
-                        : 'flex-start'
-                      : 'center',
-                    overflow: 'hidden',
+                    marginBottom: 0, // Remove any bottom margin
                   }}
                 >
+                  {/* Background image */}
                   <img
                     src={slide.image}
                     alt={`Slide ${index + 1}`}
                     style={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'fill',
+                      objectFit: isMobile ? 'contain' : 'cover',
+                      objectPosition: 'top',
                     }}
                   />
 
-                  {slide.text && (
+                  {/* Text directly over the image - only for non-mobile */}
+                  {!isMobile && (
                     <Box
                       sx={{
                         position: 'absolute',
-                        left: slide.textPosition === 'right' ? 'auto' : '5%',
-                        right: slide.textPosition === 'right' ? '5%' : 'auto',
-                        width: { xs: '90%', sm: '80%', md: '60%' },
-                        color: '#fff',
-                        padding: { xs: '.625rem', sm: '1.25rem', md: '1.875rem' },
-                        borderRadius: '.625rem',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        textAlign: 'center',
+                        color: 'white',
+                        p: 2,
+                        width: '100%',
+                        maxWidth: '90%',
                       }}
                     >
                       {slide.text}
@@ -216,6 +163,10 @@ const HeroSection = () => {
             ))}
           </Swiper>
         </Container>
+      </Box>
+      {/* Features Section */}
+      <Box sx={{ marginBottom: '10px' }}>
+        {/* Add your features section content here */}
       </Box>
     </ThemeProvider>
   );

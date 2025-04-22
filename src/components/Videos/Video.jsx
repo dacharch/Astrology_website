@@ -80,6 +80,7 @@ const Videos = () => {
         sx={{
           marginTop: "30px",
           padding: "12px 30px",
+          marginRight:'15px',
         
           color: "#fff",
           fontSize: "18px",
@@ -94,7 +95,30 @@ const Videos = () => {
           backgroundColor: '#001533' // Proper block for alignment
         }}
       >
-        View Channel
+        View YouTube Channel
+      </Link>
+
+      <Link
+        href="https://www.youtube.com/@AcharyaReenaSharma05/videos"
+        target="_blank"
+        sx={{
+          marginTop: "30px",
+          padding: "12px 30px",
+        
+          color: "#fff",
+          fontSize: "18px",
+          borderRadius: "25px",
+          "&:hover": {
+            backgroundColor: "#303f9f",
+          },
+          textDecoration: "none",
+          boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+          transition: "background-color 0.3s, box-shadow 0.3s",
+          display: "inline-block", 
+          backgroundColor: '#001533' // Proper block for alignment
+        }}
+      >
+        View Instagram Page
       </Link>
     </Box>
   );

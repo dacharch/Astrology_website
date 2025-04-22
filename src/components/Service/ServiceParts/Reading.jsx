@@ -3,6 +3,13 @@ import { Box, Typography, Button } from '@mui/material';
 import Header from '../../Header/Header';
 
 const TarotCardPage = () => {
+
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "91956011902"; 
+    const whatsappURL = `https://wa.me/${phoneNumber}`;
+    window.open(whatsappURL, "_blank");
+  };
+  
   return (
     <>
       <Header />
@@ -122,6 +129,7 @@ const TarotCardPage = () => {
               },
               backgroundColor: '#001533' 
             }}
+            onClick={handleWhatsAppRedirect}
           >
             Get Started Here
           </Button>

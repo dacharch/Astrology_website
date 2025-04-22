@@ -10,6 +10,7 @@ import {
   Menu,
   MenuItem,
   Button,
+  Snackbar,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link as RouterLink } from "react-router-dom";
@@ -22,6 +23,8 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [anchorEl, setAnchorEl] = useState(null);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMsg, setSnackbarMsg] = useState("");
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -31,18 +34,33 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const handleCall = () => {
-    window.location.href = "tel:+919560111902"; // Opens dialer
+  const handleCopy = async (text, label) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setSnackbarMsg(`${label} copied to clipboard`);
+      setSnackbarOpen(true);
+    } catch (err) {
+      setSnackbarMsg("Failed to copy");
+      setSnackbarOpen(true);
+    }
   };
 
-  const handleEmail = () => {
-    window.location.href = "mailto:paramakshaastrology@gmail.com"; // Opens email client
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
+  const scrollToSection = (id) => {
+    const target = document.querySelector(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const menuItems = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
+    { label: "Follow Us", path: "#footer" },
   ];
 
   return (
@@ -86,21 +104,21 @@ const Header = () => {
                 letterSpacing: "1px",
               }}
             >
-              Paramaksha Astrology
+              Parmaksha Astrology
             </Typography>
             <Typography
               variant="body2"
               sx={{
                 fontFamily: "'Roboto', sans-serif",
-                fontSize: "11px",
-                fontWeight: "700",
+                fontSize: "13px",
+                fontWeight: "bold",
                 color: "#777",
                 textTransform: "uppercase",
                 letterSpacing: "0.8px",
                 paddingLeft: 2,
               }}
             >
-              Astro Coach • Vastu Coach • Life Coach
+              By Acharya Reena Sharma
             </Typography>
           </Box>
         </Box>
@@ -111,14 +129,22 @@ const Header = () => {
             {menuItems.map((item) => (
               <Link
                 key={item.label}
-                component={RouterLink}
-                to={item.path}
+                component={item.path.startsWith("#") ? "button" : RouterLink}
+                onClick={() => {
+                  if (item.path.startsWith("#")) {
+                    scrollToSection(item.path);
+                  }
+                }}
+                to={item.path.startsWith("#") ? undefined : item.path}
                 sx={{
                   fontFamily: "'Roboto', sans-serif",
                   fontWeight: "600",
                   fontSize: "18px",
                   color: "#333",
                   textDecoration: "none",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
                   "&:hover": { color: "#C08D5D" },
                 }}
               >
@@ -126,7 +152,7 @@ const Header = () => {
               </Link>
             ))}
 
-            {/* Consult Now Button with Contact Options */}
+            {/* Consult Now Button */}
             <Box>
               <Button
                 variant="contained"
@@ -147,13 +173,13 @@ const Header = () => {
                 Consult Now
               </Button>
               <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
-                <MenuItem onClick={handleCall}>
+                <MenuItem onClick={() => handleCopy("+919560111902", "Phone number")}>
                   <PhoneIcon sx={{ marginRight: 1, color: "#C08D5D" }} />
-                  Call: +91 9560111902
+                  +91 9560111902
                 </MenuItem>
-                <MenuItem onClick={handleEmail}>
+                <MenuItem onClick={() => handleCopy("paramakshaastrology@gmail.com", "Email address")}>
                   <EmailIcon sx={{ marginRight: 1, color: "#C08D5D" }} />
-                  Email: paramakshaastrology@gmail.com
+                  paramakshaastrology@gmail.com
                 </MenuItem>
               </Menu>
             </Box>
@@ -168,16 +194,27 @@ const Header = () => {
             </IconButton>
             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
               {menuItems.map((item) => (
-                <MenuItem key={item.label} onClick={handleMenuClose}>
+                <MenuItem
+                  key={item.label}
+                  onClick={() => {
+                    handleMenuClose();
+                    if (item.path.startsWith("#")) {
+                      scrollToSection(item.path);
+                    }
+                  }}
+                >
                   <Link
-                    component={RouterLink}
-                    to={item.path}
+                    component={item.path.startsWith("#") ? "button" : RouterLink}
+                    to={item.path.startsWith("#") ? undefined : item.path}
                     sx={{
                       fontFamily: "Roboto",
                       fontSize: "18px",
                       fontWeight: "600",
                       color: "#333",
                       textDecoration: "none",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
                       "&:hover": { color: "#C08D5D" },
                     }}
                   >
@@ -186,19 +223,27 @@ const Header = () => {
                 </MenuItem>
               ))}
 
-              {/* Direct Call and Email on Mobile */}
-              <MenuItem onClick={handleCall}>
+              <MenuItem onClick={() => handleCopy("+919560111902", "Phone number")}>
                 <PhoneIcon sx={{ marginRight: 1, color: "#C08D5D" }} />
-                Call Now
+                +91 9560111902
               </MenuItem>
-              <MenuItem onClick={handleEmail}>
+              <MenuItem onClick={() => handleCopy("paramakshaastrology@gmail.com", "Email address")}>
                 <EmailIcon sx={{ marginRight: 1, color: "#C08D5D" }} />
-                Email Us
+                paramakshaastrology@gmail.com
               </MenuItem>
             </Menu>
           </Box>
         )}
       </Toolbar>
+
+      {/* Snackbar */}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={2000}
+        onClose={handleSnackbarClose}
+        message={snackbarMsg}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      />
     </AppBar>
   );
 };

@@ -14,7 +14,6 @@ const Home = () => {
        <Service/>
        <Video/>
        <Testimonials/>
-       <Contact/>
        <Footer/>
        
     </>
