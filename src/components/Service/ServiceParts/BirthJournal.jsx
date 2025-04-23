@@ -1,13 +1,16 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import Header from '../../Header/Header';
 
-const TarotCardPage = () => {
+const BirthJournal = () => {
   const handleWhatsAppRedirect = () => {
-    const phoneNumber = "91956011902"; 
+    const phoneNumber = "91956011902";
     const whatsappURL = `https://wa.me/${phoneNumber}`;
     window.open(whatsappURL, "_blank");
   };
+
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
@@ -19,13 +22,13 @@ const TarotCardPage = () => {
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          padding: '40px',
+          padding: isSmallScreen ? '20px 16px' : '40px',
           backgroundColor: '#f9f9f9',
           minHeight: '100vh',
         }}
       >
         <Typography
-          variant="h4"
+          variant={isSmallScreen ? 'h5' : 'h4'}
           sx={{
             fontWeight: 'bold',
             marginBottom: '20px',
@@ -38,20 +41,20 @@ const TarotCardPage = () => {
         <Box
           sx={{
             backgroundColor: '#fff',
-            padding: '30px',
+            padding: isSmallScreen ? '20px' : '30px',
             borderRadius: '15px',
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-            maxWidth: '800px',
-            minWidth: '850px',
+            width: '100%',
+            maxWidth: '850px',
             textAlign: 'center',
           }}
         >
           <Box
             sx={{
-              width: '150px',
-              height: '150px',
+              width: isSmallScreen ? '120px' : '150px',
+              height: isSmallScreen ? '120px' : '150px',
               borderRadius: '50%',
-              backgroundImage: 'url(/images/birth.jpeg)', // Update with correct path
+              backgroundImage: 'url(/images/birth.jpeg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -66,6 +69,7 @@ const TarotCardPage = () => {
               color: '#333',
               maxWidth: '600px',
               marginX: 'auto',
+              fontSize: isSmallScreen ? '1rem' : '1.1rem',
             }}
           >
             Unlock the secrets of life's journey through an insightful analysis of your birth journal (kundli).
@@ -79,9 +83,10 @@ const TarotCardPage = () => {
               maxWidth: '600px',
               marginBottom: '20px',
               marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-            The celestial bodies (planets and stars) affect your life at every step. Decoding their position and alignment at the time of birth will help you understand the underlying cause of your circumstances - both good and challenging. With profound insights, you decipher the narrative and motive of your life which helps you sail smooth.
+            The celestial bodies (planets and stars) affect your life at every step. Decoding their position and alignment at the time of birth will help you understand the underlying cause of your circumstances — both good and challenging. With profound insights, you decipher the narrative and motive of your life which helps you sail smooth.
           </Typography>
 
           <Typography
@@ -92,9 +97,10 @@ const TarotCardPage = () => {
               maxWidth: '600px',
               marginBottom: '20px',
               marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-            Astrology is about discovering your strengths which come of cosmic influences as you allow clarity upon your mind and direction towards your actions. This lets you make better and mindful decisions.
+            Astrology is about discovering your strengths which come from cosmic influences as you allow clarity upon your mind and direction towards your actions. This lets you make better and mindful decisions.
           </Typography>
 
           <Typography
@@ -105,21 +111,23 @@ const TarotCardPage = () => {
               maxWidth: '600px',
               marginBottom: '20px',
               marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-            In a personalised session, your horoscope is vividly studied and discussed followed by an explanation of appropriate and effective remedies. You get to express your concerns and leave with a bagful of hope and faith.
+            In a personalised session, your horoscope is vividly studied and discussed, followed by an explanation of appropriate and effective remedies. You get to express your concerns and leave with a bagful of hope and faith.
           </Typography>
 
           <Button
             variant="contained"
             sx={{
               color: 'white',
-              padding: '10px 20px',
+              padding: isSmallScreen ? '8px 16px' : '10px 20px',
               borderRadius: '10px',
               backgroundColor: 'red',
               '&:hover': {
                 backgroundColor: '#333',
               },
+              mt: 2,
             }}
             onClick={handleWhatsAppRedirect}
           >
@@ -131,4 +139,4 @@ const TarotCardPage = () => {
   );
 };
 
-export default TarotCardPage;
+export default BirthJournal;

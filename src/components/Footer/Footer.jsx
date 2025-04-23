@@ -1,10 +1,18 @@
 import React from "react";
-import { Container, Box, Typography, IconButton, Stack, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Container,
+  Box,
+  Typography,
+  IconButton,
+  Stack,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
 
 const Footer = () => {
-  const theme = useTheme();  // Ensure use of theme from Material-UI
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));  // Check if the screen size is mobile
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Box
@@ -13,7 +21,7 @@ const Footer = () => {
       sx={{
         backgroundColor: "#002147",
         color: "white",
-        py: { xs: 4, sm: 6 }, // Adjust padding for mobile
+        py: { xs: 4, sm: 6 },
         px: 2,
         mt: 8,
       }}
@@ -23,10 +31,10 @@ const Footer = () => {
           direction={{ xs: "column", sm: "row" }}
           spacing={5}
           justifyContent="space-between"
-          alignItems={{ xs: "center", sm: "flex-start" }} // Center items for mobile
+          alignItems={{ xs: "center", sm: "flex-start" }}
         >
           {/* Contact Info */}
-          {!isMobile && ( // Hide contact info on mobile
+          {!isMobile && (
             <Box>
               <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2 }}>
                 Contact Us
@@ -41,11 +49,11 @@ const Footer = () => {
           )}
 
           {/* Navigation Links */}
-          <Box textAlign={{ xs: "center", sm: "left" }}>
+          <Box textAlign="center">
             <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2 }}>
               Quick Links
             </Typography>
-            <Stack spacing={1}>
+            <Stack spacing={1} alignItems="center">
               {["Home", "About", "Contact"].map((label) => (
                 <a
                   key={label}
@@ -53,7 +61,6 @@ const Footer = () => {
                   style={{
                     color: "white",
                     textDecoration: "none",
-                    position: "relative",
                     fontSize: "16px",
                     transition: "color 0.3s ease",
                   }}
@@ -103,7 +110,7 @@ const Footer = () => {
                   target="_blank"
                   sx={{
                     color,
-                    fontSize: 36,
+                    fontSize: { xs: 40, sm: 36 },
                     transition: "transform 0.3s, box-shadow 0.3s",
                     "&:hover": {
                       transform: "scale(1.2)",
@@ -119,7 +126,14 @@ const Footer = () => {
         </Stack>
 
         {/* Copyright */}
-        <Box sx={{ mt: 5, textAlign: "center", borderTop: "1px solid #444", pt: 3 }}>
+        <Box
+          sx={{
+            mt: 5,
+            textAlign: "center",
+            borderTop: "1px solid #444",
+            pt: 3,
+          }}
+        >
           <Typography variant="body2" sx={{ fontSize: "14px", color: "#aaa" }}>
             © 2025 Paramaksha Astrology | All Rights Reserved
           </Typography>

@@ -99,7 +99,7 @@ const Videos = () => {
       </Link>
 
       <Link
-        href="https://www.youtube.com/@AcharyaReenaSharma05/videos"
+        href="https://www.instagram.com/paramaksha/"
         target="_blank"
         sx={{
           marginTop: "30px",

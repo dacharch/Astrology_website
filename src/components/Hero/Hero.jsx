@@ -17,13 +17,20 @@ const slides = [
   {
     image: '/images/banner.jpg',
     text: (
-      <Box sx={{ maxWidth: '90%', mx: 'auto' }}>
+      <Box
+        sx={{
+          maxWidth: '600px',
+          ml: { xs: 4, sm: 'auto', md: 8 },  // Increased left margin on mobile
+          mr: { xs: 2, sm: 5, md: 8 },
+          textAlign: 'right',
+        }}
+      >
         <Typography
           component="p"
           sx={{
-            fontSize: { xs: '16px', sm: '20px', md: '24px' },
-            fontWeight: 'bold',
-            lineHeight: 1.4,
+            fontSize: { xs: '14px', sm: '20px', md: '28px' }, // Smaller text on mobile
+            fontWeight: 600,
+            lineHeight: 1.6,
             color: 'white',
           }}
         >
@@ -34,9 +41,8 @@ const slides = [
           sx={{
             color: 'yellow',
             fontWeight: 'bold',
-            textAlign: 'right',
-            mt: 2,
-            fontSize: { xs: '16px', sm: '18px', md: '20px' },
+            mt: 1,
+            fontSize: { xs: '14px', sm: '20px', md: '24px' }, // Smaller text on mobile
           }}
         >
           — By Acharya Reena Sharma
@@ -46,53 +52,45 @@ const slides = [
     textPosition: 'right',
   },
   {
-    image: '/images/banner3.jpg',
+    image: '/images/banner2.jpg',
     text: (
-      <Box sx={{ maxWidth: '90%', mx: 'auto' }}>
+      <Box
+        sx={{
+          maxWidth: '600px',
+          ml: { xs: 0, sm: 5, md: 8 },  // Start text from the left on mobile
+          mr: { xs: 4, sm: 'auto', md: 8 },  // Adjust right margin on mobile
+          textAlign: 'left',
+        }}
+      >
         <Typography
           component="p"
           sx={{
-            fontSize: { xs: '32px', sm: '40px', md: '48px' },
-            fontWeight: 'bold',
+            fontSize: { xs: '14px', sm: '20px', md: '28px' }, // Smaller text on mobile
+            fontWeight: 600,
+            lineHeight: 1.6,
             color: 'white',
-            textTransform: 'uppercase',
-            lineHeight: 1,
-            textAlign: 'center',
           }}
         >
-          ACHARYA
+          "Bring positive transformation to your home and life with the ancient wisdom of Vastu Shastra."
         </Typography>
         <Typography
           component="p"
           sx={{
-            fontSize: { xs: '36px', sm: '45px', md: '55px' },
-            fontWeight: 'bold',
             color: 'yellow',
-            textTransform: 'uppercase',
-            textAlign: 'center',
-            textShadow: '.1875rem .1875rem .375rem rgba(0, 0, 0, 0.7)',
+            fontWeight: 'bold',
+            mt: 1,
+            fontSize: { xs: '14px', sm: '20px', md: '24px' }, // Smaller text on mobile
           }}
         >
-          REENA SHARMA
+          — Trusted by thousands
         </Typography>
-
-        <Box sx={{ mt: 2 }}>
-          {['GLOBALLY ACCLAIMED ASTROLOGER', 'VASTU CONSULTANT', 'LIFE COACH'].map((line, i) => (
-            <Typography
-              key={i}
-              sx={{
-                color: 'yellow',
-                fontWeight: 'bold',
-                fontSize: { xs: '20px', sm: '25px', md: '30px' },
-                textAlign: 'center',
-              }}
-            >
-              {line}
-            </Typography>
-          ))}
-        </Box>
       </Box>
     ),
+    textPosition: 'left',
+  },
+  {
+    image: '/images/banner3.jpg',
+    text: null,
     textPosition: 'center',
   },
 ];
@@ -102,12 +100,12 @@ theme = responsiveFontSizes(theme);
 
 const HeroSection = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const height = isMobile ? '30vh' : '100vh';  // Full height for mobile as well
+  const height = isMobile ? '30vh' : '100vh'; // Dynamically set height
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ py: 0, marginBottom: '10px' }}>
-        <Container maxWidth="xl" disableGutters>
+      <Box sx={{ py: 0, mb: '10px' }}>
+        <Container maxWidth={false} disableGutters sx={{  }}>
           <Swiper
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -115,58 +113,110 @@ const HeroSection = () => {
             loop
             style={{ width: '100vw', height }}
           >
-            {slides.map((slide, index) => (
-              <SwiperSlide key={index}>
+            <SwiperSlide>
+              <Box
+                sx={{
+                  width: '100vw',
+                  height,
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  overflow: 'hidden', // Prevent overflow
+                }}
+              >
+                <img
+                  src={slides[0].image}
+                  alt="Slide 1"
+                  style={{
+                    width: '100%', // Full width of the screen
+                    height: '100%', // Full height of the screen
+                    objectFit: 'fill', // Ensure the image is fully visible without cropping
+                    objectPosition: 'center', // Center the image within the container
+                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5)', // Shadow to the image
+                  }}
+                />
                 <Box
                   sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    p: 2,
                     width: '100%',
-                    height,
-                    position: 'relative',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginBottom: 0, // Remove any bottom margin
+                    maxWidth: '90%',
                   }}
                 >
-                  {/* Background image */}
-                  <img
-                    src={slide.image}
-                    alt={`Slide ${index + 1}`}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: isMobile ? 'contain' : 'cover',
-                      objectPosition: 'top',
-                    }}
-                  />
-
-                  {/* Text directly over the image - only for non-mobile */}
-                  {!isMobile && (
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        textAlign: 'center',
-                        color: 'white',
-                        p: 2,
-                        width: '100%',
-                        maxWidth: '90%',
-                      }}
-                    >
-                      {slide.text}
-                    </Box>
-                  )}
+                  {slides[0].text}
                 </Box>
-              </SwiperSlide>
-            ))}
+              </Box>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <Box
+                sx={{
+                  width: '100vw',
+                  height,
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  overflow: 'hidden', // Prevent overflow
+                }}
+              >
+                <img
+                  src={slides[1].image}
+                  alt="Slide 2"
+                  style={{
+                    width: '100%', // Full width of the screen
+                    height: '100%', // Full height of the screen
+                    objectFit: 'fill', // Ensure the image is fully visible without cropping
+                    objectPosition: 'center', // Center the image within the container
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    p: 2,
+                    width: '100%',
+                    maxWidth: '90%',
+                  }}
+                >
+                  {slides[1].text}
+                </Box>
+              </Box>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <Box
+                sx={{
+                  width: '100vw',
+                  height,
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  overflow: 'hidden', // Prevent overflow
+                }}
+              >
+                <img
+                  src={slides[2].image}
+                  alt="Slide 3"
+                  style={{
+                    width: '100%', // Full width of the screen
+                    height: '100%', // Full height of the screen
+                    objectFit: 'fill', // Ensure the image is fully visible without cropping
+                    objectPosition: 'center', // Center the image within the container
+                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5)', // Shadow to the image
+                  }}
+                />
+              </Box>
+            </SwiperSlide>
           </Swiper>
         </Container>
-      </Box>
-      {/* Features Section */}
-      <Box sx={{ marginBottom: '10px' }}>
-        {/* Add your features section content here */}
       </Box>
     </ThemeProvider>
   );

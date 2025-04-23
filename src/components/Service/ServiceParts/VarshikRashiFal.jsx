@@ -1,14 +1,16 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import Header from '../../Header/Header';
 
 const VarshikRashiFal = () => {
-  
   const handleWhatsAppRedirect = () => {
-    const phoneNumber = "91956011902"; 
+    const phoneNumber = "91956011902";
     const whatsappURL = `https://wa.me/${phoneNumber}`;
     window.open(whatsappURL, "_blank");
   };
+
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
@@ -20,13 +22,13 @@ const VarshikRashiFal = () => {
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          padding: '40px',
+          padding: isSmallScreen ? '20px 16px' : '40px',
           backgroundColor: '#f9f9f9',
           minHeight: '100vh',
         }}
       >
         <Typography
-          variant="h4"
+          variant={isSmallScreen ? 'h5' : 'h4'}
           sx={{
             fontWeight: 'bold',
             marginBottom: '20px',
@@ -35,25 +37,24 @@ const VarshikRashiFal = () => {
         >
           Varshik Rashi Fal
         </Typography>
-        
 
         <Box
           sx={{
             backgroundColor: '#fff',
-            padding: '30px',
+            padding: isSmallScreen ? '20px' : '30px',
             borderRadius: '15px',
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-            maxWidth: '800px',
-            minWidth: '850px',
+            width: '100%',
+            maxWidth: '850px',
             textAlign: 'center',
           }}
         >
           <Box
             sx={{
-              width: '150px',
-              height: '150px',
+              width: isSmallScreen ? '120px' : '150px',
+              height: isSmallScreen ? '120px' : '150px',
               borderRadius: '50%',
-              backgroundImage: 'url(/images/varshikrashifal.jpg)', // Update with correct path
+              backgroundImage: 'url(/images/varshikrashifal.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -68,9 +69,10 @@ const VarshikRashiFal = () => {
               color: '#333',
               maxWidth: '600px',
               marginX: 'auto',
+              fontSize: isSmallScreen ? '1rem' : '1.1rem',
             }}
           >
-             Varshik Rashifal provides insights into your career, relationships, health, and finances based on planetary movements. It serves as a roadmap for the year ahead, helping you understand the opportunities and challenges that await you
+            Varshik Rashifal provides insights into your career, relationships, health, and finances based on planetary movements. It serves as a roadmap for the year ahead, helping you understand the opportunities and challenges that await you.
           </Typography>
 
           <Typography
@@ -80,10 +82,11 @@ const VarshikRashiFal = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-           By analyzing planetary transits, dashas, and yogas in your horoscope, this yearly prediction offers a clear vision of how different aspects of your life will unfold. Whether you are looking for professional growth, stability in relationships, or better health, Varshik Rashifal provides valuable guidance to make informed decisions.
+            By analyzing planetary transits, dashas, and yogas in your horoscope, this yearly prediction offers a clear vision of how different aspects of your life will unfold. Whether you are looking for professional growth, stability in relationships, or better health, Varshik Rashifal provides valuable guidance to make informed decisions.
           </Typography>
 
           <Typography
@@ -93,10 +96,11 @@ const VarshikRashiFal = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-           Each zodiac sign experiences unique shifts influenced by celestial alignments. Understanding these influences helps you plan ahead, take advantage of favorable periods, and implement effective remedies to overcome obstacles.
+            Each zodiac sign experiences unique shifts influenced by celestial alignments. Understanding these influences helps you plan ahead, take advantage of favorable periods, and implement effective remedies to overcome obstacles.
           </Typography>
 
           <Typography
@@ -106,22 +110,24 @@ const VarshikRashiFal = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-           Prepare yourself for the year ahead with expert astrological insights and personalized solutions for a successful and fulfilling journey!
+            Prepare yourself for the year ahead with expert astrological insights and personalized solutions for a successful and fulfilling journey!
           </Typography>
+
           <Button
             variant="contained"
             sx={{
-              
               color: 'white',
-              padding: '10px 20px',
+              padding: isSmallScreen ? '8px 16px' : '10px 20px',
               borderRadius: '10px',
               backgroundColor: '#001533',
               '&:hover': {
                 backgroundColor: '#333',
               },
+              mt: 2,
             }}
             onClick={handleWhatsAppRedirect}
           >
@@ -129,10 +135,7 @@ const VarshikRashiFal = () => {
           </Button>
         </Box>
       </Box>
-
-
     </>
-
   );
 };
 

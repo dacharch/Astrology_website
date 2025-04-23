@@ -87,18 +87,18 @@ const Header = () => {
             src="/images/logo.png"
             alt="Logo"
             sx={{
-              height: "70px",
+              height: isMobile ? "50px" : "70px", // Adjust logo size for mobile
               width: "auto",
               cursor: "pointer",
             }}
           />
           <Box sx={{ ml: "10px", display: "flex", flexDirection: "column" }}>
             <Typography
-              variant="h4"
+              variant={isMobile ? "h5" : "h4"}
               sx={{
                 fontFamily: "'Roboto', sans-serif",
                 fontWeight: "700",
-                fontSize: "30px",
+                fontSize: isMobile ? "24px" : "30px",
                 color: "#C08D5D",
                 textTransform: "capitalize",
                 letterSpacing: "1px",
@@ -110,7 +110,7 @@ const Header = () => {
               variant="body2"
               sx={{
                 fontFamily: "'Roboto', sans-serif",
-                fontSize: "13px",
+                fontSize: isMobile ? "12px" : "13px",
                 fontWeight: "bold",
                 color: "#777",
                 textTransform: "uppercase",

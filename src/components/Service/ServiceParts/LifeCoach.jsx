@@ -1,15 +1,17 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import Header from '../../Header/Header';
 
 const TarotCardPage = () => {
-
   const handleWhatsAppRedirect = () => {
-    const phoneNumber = "91956011902"; 
+    const phoneNumber = "91956011902";
     const whatsappURL = `https://wa.me/${phoneNumber}`;
     window.open(whatsappURL, "_blank");
   };
-  
+
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <>
       <Header />
@@ -21,13 +23,13 @@ const TarotCardPage = () => {
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          padding: '40px',
+          padding: isSmallScreen ? '20px 16px' : '40px',
           backgroundColor: '#f9f9f9',
           minHeight: '100vh',
         }}
       >
         <Typography
-          variant="h4"
+          variant={isSmallScreen ? 'h5' : 'h4'}
           sx={{
             fontWeight: 'bold',
             marginBottom: '20px',
@@ -40,20 +42,20 @@ const TarotCardPage = () => {
         <Box
           sx={{
             backgroundColor: '#fff',
-            padding: '30px',
+            padding: isSmallScreen ? '20px' : '30px',
             borderRadius: '15px',
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-            maxWidth: '800px',
-            minWidth: '850px',
+            width: '100%',
+            maxWidth: '850px',
             textAlign: 'center',
           }}
         >
           <Box
             sx={{
-              width: '150px',
-              height: '150px',
+              width: isSmallScreen ? '120px' : '150px',
+              height: isSmallScreen ? '120px' : '150px',
               borderRadius: '50%',
-              backgroundImage: 'url(/images/life.jpg)', // Update with correct path
+              backgroundImage: 'url(/images/life.jpg)', // Make sure the image path is correct
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -68,10 +70,10 @@ const TarotCardPage = () => {
               color: '#333',
               maxWidth: '600px',
               marginX: 'auto',
+              fontSize: isSmallScreen ? '1rem' : '1.1rem',
             }}
           >
             Air is all around us, but in order to feel it we need to switch the fan on and sit under it. Likewise, the understanding and wisdom lies inside us, but we need someone who can help in the journey inwards and find the treasure of innate power and knowledge. Allow yourself the guidance which helps you claim your might and take control of your endeavours towards success.
-           
           </Typography>
 
           <Typography
@@ -81,7 +83,8 @@ const TarotCardPage = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
             Each coaching session is targeted towards having you blossom in full bloom - on both personal and professional front.
@@ -94,24 +97,24 @@ const TarotCardPage = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-           Aiming to foster holistic well being, I wish to share with you the experience I have gathered over two decades. And as we relay the spark of knowledge, before we know, the mental space is already Illuminated.
-
+            Aiming to foster holistic well being, I wish to share with you the experience I have gathered over two decades. And as we relay the spark of knowledge, before we know, the mental space is already illuminated.
           </Typography>
 
           <Button
             variant="contained"
             sx={{
-              
               color: 'white',
-              padding: '10px 20px',
+              padding: isSmallScreen ? '8px 16px' : '10px 20px',
               borderRadius: '10px',
+              backgroundColor: '#001533',
               '&:hover': {
                 backgroundColor: '#333',
               },
-              backgroundColor: '#001533' 
+              mt: 2,
             }}
             onClick={handleWhatsAppRedirect}
           >
@@ -119,10 +122,7 @@ const TarotCardPage = () => {
           </Button>
         </Box>
       </Box>
-
-
     </>
-
   );
 };
 

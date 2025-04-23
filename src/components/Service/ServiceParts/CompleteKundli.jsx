@@ -1,14 +1,17 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import Header from '../../Header/Header';
 
 const CompleteKundli = () => {
- 
   const handleWhatsAppRedirect = () => {
-    const phoneNumber = "91956011902"; 
+    const phoneNumber = "91956011902";
     const whatsappURL = `https://wa.me/${phoneNumber}`;
     window.open(whatsappURL, "_blank");
   };
+
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <>
       <Header />
@@ -19,13 +22,13 @@ const CompleteKundli = () => {
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          padding: '40px',
+          padding: isSmallScreen ? '20px 16px' : '40px',
           backgroundColor: '#f9f9f9',
           minHeight: '100vh',
         }}
       >
         <Typography
-          variant="h4"
+          variant={isSmallScreen ? 'h5' : 'h4'}
           sx={{
             fontWeight: 'bold',
             marginBottom: '20px',
@@ -34,25 +37,24 @@ const CompleteKundli = () => {
         >
           Complete Kundli
         </Typography>
-        
 
         <Box
           sx={{
             backgroundColor: '#fff',
-            padding: '30px',
+            padding: isSmallScreen ? '20px' : '30px',
             borderRadius: '15px',
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-            maxWidth: '800px',
-            minWidth: '850px',
+            width: '100%',
+            maxWidth: '850px',
             textAlign: 'center',
           }}
         >
           <Box
             sx={{
-              width: '150px',
-              height: '150px',
+              width: isSmallScreen ? '120px' : '150px',
+              height: isSmallScreen ? '120px' : '150px',
               borderRadius: '50%',
-              backgroundImage: 'url(/images/completkundli.jpg)', // Update with correct path
+              backgroundImage: 'url(/images/completkundli.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -67,6 +69,7 @@ const CompleteKundli = () => {
               color: '#333',
               maxWidth: '600px',
               marginX: 'auto',
+              fontSize: isSmallScreen ? '1rem' : '1.1rem',
             }}
           >
             Discover the cosmic blueprint of your life with our Complete Kundli Service. From detailed birth chart analysis to career, marriage, health, and finance predictions,
@@ -79,10 +82,11 @@ const CompleteKundli = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-           we provide deep insights based on Vedic astrology. Our service includes Kundli generation, Gun Milan (matchmaking), dosha analysis, dasha & transit effects, and powerful remedies like gemstones, mantras, and pujas.
+            we provide deep insights based on Vedic astrology. Our service includes Kundli generation, Gun Milan (matchmaking), dosha analysis, dasha & transit effects, and powerful remedies like gemstones, mantras, and pujas.
           </Typography>
 
           <Typography
@@ -92,27 +96,24 @@ const CompleteKundli = () => {
               color: '#555',
               maxWidth: '600px',
               marginBottom: '20px',
-              marginX: 'auto',  // Ensures it aligns centrally within the box
+              marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-          
-          Whether you seek clarity on life’s path or solutions to challenges, our expert-driven Kundli service is your ultimate guide. Get your personalized Kundli today and unlock your true potential! ✨
+            Whether you seek clarity on life’s path or solutions to challenges, our expert-driven Kundli service is your ultimate guide. Get your personalized Kundli today and unlock your true potential! ✨
           </Typography>
-
-        
-          
 
           <Button
             variant="contained"
             sx={{
-             
               color: 'white',
-              padding: '10px 20px',
+              padding: isSmallScreen ? '8px 16px' : '10px 20px',
               borderRadius: '10px',
+              backgroundColor: '#001533',
               '&:hover': {
                 backgroundColor: '#333',
               },
-              backgroundColor: '#001533' 
+              mt: 2,
             }}
             onClick={handleWhatsAppRedirect}
           >
@@ -120,10 +121,7 @@ const CompleteKundli = () => {
           </Button>
         </Box>
       </Box>
-
-
     </>
-
   );
 };
 
