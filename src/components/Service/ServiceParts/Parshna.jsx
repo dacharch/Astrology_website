@@ -2,11 +2,16 @@ import React from 'react';
 import { Box, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import Header from '../../Header/Header';
 
-const Vastu = () => {
+const Parshna = () => {
   const handleWhatsAppRedirect = () => {
     const phoneNumber = "91956011902";
     const whatsappURL = `https://wa.me/${phoneNumber}`;
     window.open(whatsappURL, "_blank");
+  };
+
+  const handleGetStartedRedirect = () => {
+    // You can redirect this to another page or a form section
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const theme = useTheme();
@@ -35,7 +40,7 @@ const Vastu = () => {
             color: '#333',
           }}
         >
-          Astro Vastu Consultancy
+          Prashna Kundli
         </Typography>
 
         <Box
@@ -51,10 +56,10 @@ const Vastu = () => {
         >
           <Box
             sx={{
-              width: '120px',
-              height: '120px',
+              width: isSmallScreen ? '120px' : '150px',
+              height: isSmallScreen ? '120px' : '150px',
               borderRadius: '50%',
-              backgroundImage: 'url(/images/vastu.jpeg)',
+              backgroundImage: 'url(/images/prashna.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
@@ -72,7 +77,7 @@ const Vastu = () => {
               fontSize: isSmallScreen ? '1rem' : '1.1rem',
             }}
           >
-            Everything is varying energies... surround yourself with happy ones
+            Don’t know your birth time or birth chart? No worries! Prashna Kundli is here to give you answers based on the moment you ask your question.
           </Typography>
 
           <Typography
@@ -86,9 +91,7 @@ const Vastu = () => {
               fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-            Have happy and harmonious energies settle upon your habitat. Let bliss and growth prevail through Vastu.
-            <br /><br />
-            Supportive energy is a pre-requisite for balance and prosperity in any plot of space and time. Twining the wisdom of Astrology with the prudence of Vastu Shastra, you can orient your home or workspace about elevating forces which support life optimally.
+            This ancient Vedic astrology technique is perfect for urgent or confusing situations. Whether it's love, career, money, or personal matters—ask now and let the universe reveal its signs through the Prashna chart.
           </Typography>
 
           <Typography
@@ -102,29 +105,61 @@ const Vastu = () => {
               fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
           >
-            Resorting to a personalised Astro Vastu session, you may optimize your surroundings with energies which synthesise good health, loving relationships, success, peace, and prosperity.
+            Even without your full birth details, our astrologers analyze the planetary positions at the time of your question to give you a detailed and insightful answer.
           </Typography>
 
-          <Button
-            variant="contained"
+          <Typography
+            variant="body1"
             sx={{
-              color: 'white',
-              padding: isSmallScreen ? '8px 16px' : '10px 20px',
-              borderRadius: '10px',
-              backgroundColor: '#001533',
-              '&:hover': {
-                backgroundColor: '#333',
-              },
-              mt: 2,
+              lineHeight: '1.8',
+              color: '#555',
+              maxWidth: '600px',
+              marginBottom: '20px',
+              marginX: 'auto',
+              fontSize: isSmallScreen ? '0.95rem' : '1rem',
             }}
-            onClick={handleWhatsAppRedirect}
           >
-            Get Started Here
-          </Button>
+            Ask now and receive a clear path forward with spiritual and practical remedies tailored for you.
+          </Typography>
+
+          <Box sx={{ display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row', gap: 2, justifyContent: 'center', mt: 3 }}>
+            <Button
+              variant="contained"
+              onClick={handleWhatsAppRedirect}
+              sx={{
+                color: 'white',
+                padding: isSmallScreen ? '8px 16px' : '10px 20px',
+                borderRadius: '10px',
+                backgroundColor: '#001533',
+                '&:hover': {
+                  backgroundColor: '#333',
+                },
+              }}
+            >
+              Ask Your Question
+            </Button>
+
+            <Button
+              variant="outlined"
+              onClick={handleGetStartedRedirect}
+              sx={{
+                color: '#001533',
+                borderColor: '#001533',
+                padding: isSmallScreen ? '8px 16px' : '10px 20px',
+                borderRadius: '10px',
+                '&:hover': {
+                  borderColor: '#333',
+                  color: '#333',
+                },
+              }}
+            >
+              Get Started Soon
+            </Button>
+          </Box>
         </Box>
       </Box>
     </>
   );
 };
 
-export default Vastu;
+export default Parshna;

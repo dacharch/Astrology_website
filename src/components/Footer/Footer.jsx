@@ -8,7 +8,8 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
+import { Facebook, Instagram, LinkedIn, YouTube } from "@mui/icons-material"; // YouTube icon added
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const theme = useTheme();
@@ -55,9 +56,9 @@ const Footer = () => {
             </Typography>
             <Stack spacing={1} alignItems="center">
               {["Home", "About", "Contact"].map((label) => (
-                <a
+                <Link
                   key={label}
-                  href={`/${label.toLowerCase()}`}
+                  to={label === "Home" ? "/" : `/${label.toLowerCase()}`}
                   style={{
                     color: "white",
                     textDecoration: "none",
@@ -72,7 +73,7 @@ const Footer = () => {
                   }}
                 >
                   {label}
-                </a>
+                </Link>
               ))}
             </Stack>
           </Box>
@@ -103,11 +104,17 @@ const Footer = () => {
                   color: "#0077B5",
                   link: "https://www.linkedin.com/in/acharya-reena-sharma-abb50a269/",
                 },
+                {
+                  icon: <YouTube />,
+                  color: "#FF0000",
+                  link: "https://www.youtube.com/@AcharyaReenaSharma05/videos", // Replace with your actual YouTube channel URL
+                },
               ].map(({ icon, color, link }, idx) => (
                 <IconButton
                   key={idx}
                   href={link}
                   target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
                     color,
                     fontSize: { xs: 40, sm: 36 },

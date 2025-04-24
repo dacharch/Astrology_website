@@ -12,11 +12,12 @@ import CompleteKundli from './components/Service/ServiceParts/CompleteKundli'
 import VarshikRashiFal from './components/Service/ServiceParts/VarshikRashiFal'
 import SingleQuestion from './components/Service/ServiceParts/SingleQuestion'
 import VastuSixteen from './components/Service/ServiceParts/VastuSixteen'
+import Parshna from './components/Service/ServiceParts/Parshna'
+import MatchMaking from './components/Service/ServiceParts/MatchMaking'
 
 const App = () => {
   return (
     <>
-      
       <Router>
         <Routes>
            <Route path="/" element={<Home/>}/>
@@ -30,7 +31,8 @@ const App = () => {
            <Route path="services/varshik" element={<VarshikRashiFal/>} />
            <Route path="services/singlequestion" element={<SingleQuestion/>} />
            <Route path="services/vastu16" element={<VastuSixteen/>} />
-           
+           <Route path ="services/parshna" element={<Parshna/>} />
+           <Route path ="services/matchmaking" element={<MatchMaking/>} />
         </Routes>
         <WhatsAppButton/>
       </Router>

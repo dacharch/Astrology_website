@@ -3,13 +3,60 @@ import { Box, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const services = [
-  { img: '/images/vastu.jpeg', title: 'Astro Vastu Consultancy', desc: 'Everything is varying energies....surround yourself with happy ones', href: "/services/vastu" },
-  { img: '/images/face.jpeg', title: 'Face reading', desc: 'Face reading empowers you with better decision-making wisdom. Learn to read face and claim on...', href: "/services/reading" },
-  { img: '/images/life.jpg', title: 'Life Style Coach', desc: 'To harness Power, Peace and Prosperity, coach yourself towards style and substance.', href: '/services/coach' },
-  { img: '/images/completkundli.jpg', title: 'Complete Kundli', desc: 'Discover the cosmic blueprint of your life with our Complete Kundli Service.', href: '/services/completeKundli' },
-  { img: '/images/varshikrashifal.jpg', title: 'Varshik Rashifal', desc: 'Insights into your career, relationships, health, and finances based on planetary movements.', href: "/services/varshik" },
-  { img: '/images/singlequestion.jpg', title: 'Single Question Prediction', desc: 'Have a pressing question about your career, relationships, finances, or health?', href: "/services/singlequestion" },
-  { img: '/images/vastu16.jpg', title: "Vastu 16 Zone Gridding", desc: "Vastu Shastra divides any space into 16 energy zones influencing all aspects of life.", href: "/services/vastu16" }
+  {
+    img: '/images/vastu.jpeg',
+    title: 'Astro Vastu Consultancy',
+    desc: 'Everything is varying energies....surround yourself with happy ones',
+    href: "/services/vastu"
+  },
+  {
+    img: '/images/face.jpeg',
+    title: 'Face reading',
+    desc: 'Face reading empowers you with better decision-making wisdom. Learn to read face and claim on...',
+    href: "/services/reading"
+  },
+  {
+    img: '/images/life.jpg',
+    title: 'Life Style Coach',
+    desc: 'To harness Power, Peace and Prosperity, coach yourself towards style and substance.',
+    href: '/services/coach'
+  },
+  {
+    img: '/images/completkundli.jpg',
+    title: 'Complete Kundli',
+    desc: 'Discover the cosmic blueprint of your life with our Complete Kundli Service.',
+    href: '/services/completeKundli'
+  },
+  {
+    img: '/images/varshikrashifal.jpg',
+    title: 'Varshik Rashifal',
+    desc: 'Insights into your career, relationships, health, and finances based on planetary movements.',
+    href: "/services/varshik"
+  },
+  {
+    img: '/images/singlequestion.jpg',
+    title: 'Single Question Prediction',
+    desc: 'Have a pressing question about your career, relationships, finances, or health?',
+    href: "/services/singlequestion"
+  },
+  {
+    img: '/images/vastu16.jpg',
+    title: "Vastu 16 Zone Gridding",
+    desc: "Vastu Shastra divides any space into 16 energy zones influencing all aspects of life.",
+    href: "/services/vastu16"
+  },
+  {
+    img: '/images/prashna.jpg',
+    title: "Prashna Kundli",
+    desc: "Answer your urgent questions without birth details. Ask now for divine insight.",
+    href: "/services/parshna"
+  },
+  {
+    img: '/images/singlequestion.jpg',
+    title: "Match Making",
+    desc: "Find compatibility and harmony in your relationships with expert astrological matchmaking.",
+    href: "/services/matchmaking"
+  }
 ];
 
 const Service = () => {
@@ -85,8 +132,7 @@ const Service = () => {
             <Typography variant="body2" sx={{ color: '#444', mb: 2 }}>
               {service.desc}
             </Typography>
-            
-            {/* Container for Button */}
+
             <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
               <Button
                 onClick={() => navigate(service.href)}
@@ -99,8 +145,8 @@ const Service = () => {
                   '&:hover': {
                     backgroundColor: '#001533'
                   },
-                  minWidth: '200px', // Ensure the button has enough width
-                  textAlign: 'center', // Ensures button text is aligned center
+                  minWidth: '200px',
+                  textAlign: 'center',
                 }}
               >
                 Book a Session
