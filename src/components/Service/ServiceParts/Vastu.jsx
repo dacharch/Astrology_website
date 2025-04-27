@@ -4,7 +4,7 @@ import Header from '../../Header/Header';
 
 const Vastu = () => {
   const handleWhatsAppRedirect = () => {
-    const phoneNumber = "91956011902";
+    const phoneNumber = "919560111902";
     const whatsappURL = `https://wa.me/${phoneNumber}`;
     window.open(whatsappURL, "_blank");
   };

@@ -109,23 +109,37 @@ const Service = () => {
             }}
           >
             <Box
-              component="img"
-              src={service.img}
-              alt={service.title}
+              component="div"
               sx={{
                 width: 120,
                 height: 120,
                 borderRadius: '50%',
-                objectFit: 'cover',
+                overflow: 'hidden',
                 mb: 2,
                 border: '4px solid #fff',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                transition: 'transform 0.3s ease',
-                '&:hover': {
-                  transform: 'scale(1.05)'
-                }
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
-            />
+            >
+              <Box
+                component="img"
+                src={service.img}
+                alt={service.title}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: service.title === "Prashna Kundli" ? 'top' : 'center', // Custom positioning for Prashna
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}
+              />
+            </Box>
+
             <Typography variant="h6" sx={{ color: '#002147', fontWeight: 600, mb: 1 }}>
               {service.title}
             </Typography>

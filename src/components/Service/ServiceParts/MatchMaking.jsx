@@ -3,7 +3,12 @@ import { Box, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const MatchMaking = () => {
-  const navigate = useNavigate();
+
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "919560111902";
+    const whatsappURL = `https://wa.me/${phoneNumber}`;
+    window.open(whatsappURL, "_blank");
+  };
 
   return (
     <Box
@@ -77,7 +82,7 @@ const MatchMaking = () => {
         </Typography>
 
         <Button
-          onClick={() => navigate('/services/matchmaking')}
+          onClick={handleWhatsAppRedirect}
           variant="contained"
           sx={{
             backgroundColor: '#002147',
@@ -91,7 +96,7 @@ const MatchMaking = () => {
             textAlign: 'center',
           }}
         >
-          Book a Session
+          Get Started Here
         </Button>
       </Box>
     </Box>

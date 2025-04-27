@@ -60,7 +60,7 @@ const TestimonialsPage = () => {
       message: "For years, I found myself stuck in a toxic relationship that drained my energy and left me questioning my self-worth. Meeting Reena Sharma was a turning point in my life. Her astrological insights helped me recognize the patterns that were keeping me trapped and gave me the courage to break free."
     },
     {
-      name: 'Bharti Trivedi',
+      name: 'Bharati Trivedi',
       image: 'images/archana.png',
       message: "I had the pleasure of consulting with Reena Sharma for my astrological needs, and I was truly amazed by her insights and accuracy. Her detailed analysis of my birth chart and the way she explained the planetary influences in my life made everything so clear."
     },

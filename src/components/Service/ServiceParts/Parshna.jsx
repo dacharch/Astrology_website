@@ -4,15 +4,12 @@ import Header from '../../Header/Header';
 
 const Parshna = () => {
   const handleWhatsAppRedirect = () => {
-    const phoneNumber = "91956011902";
+    const phoneNumber = "919560111902";
     const whatsappURL = `https://wa.me/${phoneNumber}`;
     window.open(whatsappURL, "_blank");
   };
 
-  const handleGetStartedRedirect = () => {
-    // You can redirect this to another page or a form section
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -54,17 +51,17 @@ const Parshna = () => {
             textAlign: 'center',
           }}
         >
+          {/* Circle Image showing the face properly */}
           <Box
             sx={{
-              width: isSmallScreen ? '120px' : '150px',
-              height: isSmallScreen ? '120px' : '150px',
-              borderRadius: '50%',
+              width: isSmallScreen ? '200px' : '250px',
+              height: isSmallScreen ? '200px' : '250px',
               backgroundImage: 'url(/images/prashna.jpg)',
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-              marginBottom: '20px',
-              marginX: 'auto',
+              backgroundPosition: 'top center',
+              borderRadius: '50%',
+              boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.3)',
+              margin: '0 auto 20px auto',
             }}
           />
 
@@ -122,10 +119,17 @@ const Parshna = () => {
             Ask now and receive a clear path forward with spiritual and practical remedies tailored for you.
           </Typography>
 
-          <Box sx={{ display: 'flex', flexDirection: isSmallScreen ? 'column' : 'row', gap: 2, justifyContent: 'center', mt: 3 }}>
-            <Button
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: isSmallScreen ? 'column' : 'row',
+              gap: 2,
+              justifyContent: 'center',
+              mt: 3,
+            }}
+          >
+          <Button
               variant="contained"
-              onClick={handleWhatsAppRedirect}
               sx={{
                 color: 'white',
                 padding: isSmallScreen ? '8px 16px' : '10px 20px',
@@ -134,26 +138,11 @@ const Parshna = () => {
                 '&:hover': {
                   backgroundColor: '#333',
                 },
+                mt: 2,
               }}
+              onClick={handleWhatsAppRedirect}
             >
-              Ask Your Question
-            </Button>
-
-            <Button
-              variant="outlined"
-              onClick={handleGetStartedRedirect}
-              sx={{
-                color: '#001533',
-                borderColor: '#001533',
-                padding: isSmallScreen ? '8px 16px' : '10px 20px',
-                borderRadius: '10px',
-                '&:hover': {
-                  borderColor: '#333',
-                  color: '#333',
-                },
-              }}
-            >
-              Get Started Soon
+              Get Started Here
             </Button>
           </Box>
         </Box>
