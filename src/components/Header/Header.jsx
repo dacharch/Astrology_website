@@ -60,9 +60,8 @@ const Header = () => {
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
-    {label:"Podcast" , path: '/podcast'},
+    { label: "Podcast", path: "/podcast" },
     { label: "Follow Us", path: "#footer" },
-    
   ];
 
   return (
@@ -82,14 +81,14 @@ const Header = () => {
           alignItems: "center",
         }}
       >
-        {/* Logo and Brand Name */}
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        {/* Logo + Text wrapped in Link */}
+        <Link component={RouterLink} to="/" sx={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <Box
             component="img"
             src="/images/logo.png"
             alt="Logo"
             sx={{
-              height: isMobile ? "50px" : "70px", // Adjust logo size for mobile
+              height: isMobile ? "50px" : "70px",
               width: "auto",
               cursor: "pointer",
             }}
@@ -123,7 +122,7 @@ const Header = () => {
               By Acharya Reena Sharma
             </Typography>
           </Box>
-        </Box>
+        </Link>
 
         {/* Navigation Menu */}
         {!isMobile && (
