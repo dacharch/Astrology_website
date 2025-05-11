@@ -55,7 +55,7 @@ const Footer = () => {
               Quick Links
             </Typography>
             <Stack spacing={1} alignItems="center">
-              {["Home", "About", "Contact"].map((label) => (
+              {["Home", "About", "Contact", "Podcast"].map((label) => (
                 <Link
                   key={label}
                   to={label === "Home" ? "/" : `/${label.toLowerCase()}`}

@@ -60,7 +60,9 @@ const Header = () => {
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
+    {label:"Podcast" , path: '/podcast'},
     { label: "Follow Us", path: "#footer" },
+    
   ];
 
   return (

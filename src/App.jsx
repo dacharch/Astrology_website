@@ -14,6 +14,7 @@ import SingleQuestion from './components/Service/ServiceParts/SingleQuestion'
 import VastuSixteen from './components/Service/ServiceParts/VastuSixteen'
 import Parshna from './components/Service/ServiceParts/Parshna'
 import MatchMaking from './components/Service/ServiceParts/MatchMaking'
+import Podcast from './components/Podcast/Podcast'
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
            <Route path="services/vastu16" element={<VastuSixteen/>} />
            <Route path ="services/parshna" element={<Parshna/>} />
            <Route path ="services/matchmaking" element={<MatchMaking/>} />
+           <Route path ="podcast" element={<Podcast/>} />
         </Routes>
         <WhatsAppButton/>
       </Router>
