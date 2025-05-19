@@ -52,7 +52,7 @@ const services = [
     href: "/services/parshna"
   },
   {
-    img: '/images/4.jpeg',
+    img: '/images/match.jpg',
     title: "Match Making",
     desc: "Find compatibility and harmony in your relationships with expert astrological matchmaking.",
     href: "/services/matchmaking"

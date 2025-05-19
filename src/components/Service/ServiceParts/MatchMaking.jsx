@@ -50,7 +50,7 @@ const MatchMaking = () => {
       >
         <Box
           component="img"
-          src="/images/singlequestion.jpg"
+          src="/images/match.jpg"
           alt="Match Making"
           sx={{
             width: 120,

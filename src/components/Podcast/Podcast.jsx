@@ -42,7 +42,11 @@ const Podcast = () => {
             'https://www.youtube.com/embed/EE1kKWQBYWA',
             'https://www.youtube.com/embed/WmxKRC2Q5g4',
             'https://www.youtube.com/embed/eCO1OWgF7Nk',
-            'https://www.youtube.com/embed/bkvEnHP15t0'
+            'https://www.youtube.com/embed/bkvEnHP15t0',
+            'https://www.youtube.com/embed/bqTHSXGUfRQ',
+            'https://www.youtube.com/embed/_kNcdBg8yWY',
+            'https://www.youtube.com/embed/K0cb9fjjzCU'
+            
 
  
           ].map((src, index) => (

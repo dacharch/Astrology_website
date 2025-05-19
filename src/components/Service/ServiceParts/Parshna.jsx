@@ -9,8 +9,6 @@ const Parshna = () => {
     window.open(whatsappURL, "_blank");
   };
 
-
-
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -51,11 +49,11 @@ const Parshna = () => {
             textAlign: 'center',
           }}
         >
-          {/* Circle Image showing the face properly */}
+        
           <Box
             sx={{
-              width: isSmallScreen ? '200px' : '250px',
-              height: isSmallScreen ? '200px' : '250px',
+              width: isSmallScreen ? '120px' : '150px',
+              height: isSmallScreen ? '120px' : '150px',
               backgroundImage: 'url(/images/prashna.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'top center',

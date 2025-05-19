@@ -13,7 +13,7 @@ const AboutPage = () => {
 
       <Box
         sx={{
-          minHeight: 'calc(100vh - 64px - 64px)', // Header (64px) + Footer (64px) assumed
+          minHeight: 'calc(100vh - 64px - 64px)',
           display: 'flex',
           flexDirection: 'column',
           background: "linear-gradient(to right, #dfe9f3 0%, #ffffff 100%)",
@@ -21,7 +21,7 @@ const AboutPage = () => {
       >
         <Box
           sx={{
-            flexGrow: 1, // take available space to push Footer to the bottom if needed
+            flexGrow: 1, 
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -80,7 +80,7 @@ const AboutPage = () => {
             <Typography variant="body1" sx={{ lineHeight: '1.6', color: '#555', textAlign: 'justify' }}>
               My goal is to bring Clarity, Insight, and Empowerment through the cosmic language of Astrology.
               <br />
-              As a Vedic Astrologer, Vastu Consultant, Bhrigu Nandi Nadi (BNN) Expert around with 20 years of experience, I blend ancient wisdom with a modern perspective to guide individuals through life’s complexities.
+              As a Vedic Astrologer, Vastu Consultant, Bhrigu Nandi Nadi (BNN) Expert with around 20 years of experience, I blend ancient wisdom with a modern perspective to guide individuals through life’s complexities.
             </Typography>
 
             <Typography variant="h5" sx={{ fontWeight: 'bold', mt: 3, mb: 1, color: '#333', textAlign: isSmallScreen ? 'center' : 'left' }}>
@@ -93,6 +93,9 @@ const AboutPage = () => {
               <li>Compatibility Analysis</li>
               <li>Energy Balancing</li>
               <li>Remedies & More…</li>
+              <li>Reading cosmic messages</li>
+              <li>Holistic guidance</li>
+              <li>Vastu Balancing</li>
             </Typography>
 
             <Typography variant="h5" sx={{ fontWeight: 'bold', mt: 3, mb: 1, color: '#333', textAlign: isSmallScreen ? 'center' : 'left' }}>
