@@ -91,6 +91,11 @@ const TestimonialsPage = () => {
       message:
         'This is vishvant thaker. I have consulted Reena ji. Her predictions and reading the chart is very accurate. I was given and appointment within  one week for WhatsApp call and share ensure to answer call of questions in details. I am very much satisfied and will recommend to everyone whom I know.',
     },
+    {
+      name:'Layla Patel',
+      image:'',
+      message:'The birt chart reading with Reena ji was a truly enlightening experience. She has a remarkable ability to explain complex astrological concepts in a clear and understandable way. I was impressed by the depth of her knowledge and her intuitive insights into my personaility and life path. The reading provided me with a deeper understanding of myself and my potential. Reenaji is not only a skilled astrologer but also a compassionate and supportive guide. She gave her time sufficiently to my satisfaction. I have already started with remedies she has recommended, which are easily doable remedies. I wholeheartedly recommend her services. lots of love and light.'
+    }
   ];
 
   return (
