@@ -7,7 +7,7 @@ const darkGray = '#333';
 const lightGray = '#f9f9f9';
 const softOrange = '#ff8e53';
 
-const TestimonialsContainer = styled(Box)(({ theme }) => ({
+const TestimonialsContainer = styled(Box)({
   fontFamily: 'Montserrat, sans-serif',
   color: darkGray,
   backgroundColor: lightGray,
@@ -22,21 +22,24 @@ const TestimonialsContainer = styled(Box)(({ theme }) => ({
   margin: '0 auto',
   textAlign: 'center',
   gap: '40px',
-}));
+});
 
-const TestimonialCard = styled(Card)(({ theme }) => ({
+const TestimonialCard = styled(Card)({
   height: '100%',
   boxShadow: '0px 10px 40px rgba(0, 0, 0, 0.1)',
   borderRadius: '10px',
   textAlign: 'center',
-}));
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+});
 
-const TestimonialAvatar = styled(Avatar)(({ theme }) => ({
+const TestimonialAvatar = styled(Avatar)({
   width: '80px',
   height: '80px',
   margin: '0 auto 16px',
   border: `3px solid ${softOrange}`,
-}));
+});
 
 const TestimonialsPage = () => {
   const testimonials = [
@@ -96,16 +99,26 @@ const TestimonialsPage = () => {
         What Our Customers Say
       </Typography>
 
-      <Grid container spacing={4} justifyContent="center">
+      <Grid container spacing={4}>
         {testimonials.map((testimonial, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid item xs={12} sm={4} md={4} key={index}>
             <TestimonialCard>
               <CardContent sx={{ padding: '24px' }}>
-                <TestimonialAvatar src={testimonial.image} alt={testimonial.name} />
+                {testimonial.image && (
+                  <TestimonialAvatar src={testimonial.image} alt={testimonial.name} />
+                )}
                 <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: primaryBlue }}>
                   {testimonial.name}
                 </Typography>
-                <Typography variant="body2" sx={{ color: darkGray, lineHeight: 1.6 }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: darkGray,
+                    lineHeight: 1.6,
+                    whiteSpace: 'pre-wrap',
+                    wordBreak: 'break-word',
+                  }}
+                >
                   {testimonial.message}
                 </Typography>
               </CardContent>
