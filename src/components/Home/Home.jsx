@@ -5,7 +5,10 @@ import Video from '../Videos/Video'
 import Testimonials from '../Testimonials/Testimonials'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
-import Contact from "../Contact/Contact"
+import PodcastHome from '../PodcastHome/PodcastHome'
+
+
+
 const Home = () => {
   return (
     <>
@@ -13,6 +16,7 @@ const Home = () => {
        <Hero/>
        <Service/>
        <Video/>
+       <PodcastHome/>
        <Testimonials/>
        <Footer/>
        
