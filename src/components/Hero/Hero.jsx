@@ -16,6 +16,7 @@ const slides = [
   { image: '/images/banner.jpg' },
   { image: '/images/banner2.jpg' },
   { image: '/images/banner3.jpg' },
+  {image:'/images/banner4.png'}
 ];
 
 let theme = createTheme();
