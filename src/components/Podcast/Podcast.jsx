@@ -7,7 +7,7 @@ import { Box, Typography, Link } from '@mui/material';
 const Podcast = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <Box
         component="section"
         sx={{
@@ -23,7 +23,7 @@ const Podcast = () => {
         }}
       >
         <Typography sx={{ fontSize: '25px', fontWeight: 'bold', marginBottom: '20px', color: '#002147' }}>
-           Podcast
+          Podcast
         </Typography>
 
         <Box
@@ -41,19 +41,20 @@ const Podcast = () => {
             'https://www.youtube.com/embed/WmxKRC2Q5g4',
 
             'https://www.youtube.com/embed/lvCPgz1e8Lk',
-            'https://www.youtube.com/embed/Ng8aEEMG_Zs',
+            'https://www.youtube.com/embed/0iB4iWPNqmU',
+
             'https://www.youtube.com/embed/bkvEnHP15t0',
-             'https://www.youtube.com/embed/AVcwy_H43bI',
+            'https://www.youtube.com/embed/AVcwy_H43bI',
 
 
             'https://www.youtube.com/embed/nVaJDAH0eMA',
-            
-          
+
+
             'https://www.youtube.com/embed/eCO1OWgF7Nk',
             'https://www.youtube.com/embed/_kNcdBg8yWY',
-            
+            'https://www.youtube.com/embed/Ng8aEEMG_Zs',
 
- 
+
           ].map((src, index) => (
             <iframe
               key={index}
@@ -92,7 +93,7 @@ const Podcast = () => {
           View YouTube Channel
         </Link>
       </Box>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
